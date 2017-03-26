@@ -13,31 +13,19 @@ public class PlayerScript : MonoBehaviour {
         rig = GetComponent<Rigidbody>();
 
     }
-	
-	// Update is called once per frame
-	void Update () {
+    float speed = 150;
+    Quaternion targetRotation;
+    // Update is called once per frame
+    void Update () {
         if (Input.GetMouseButtonDown(1))
         {
             Vector3 direction = Camera.main.transform.forward * 15;
 
-            //rig.MoveRotation(Quaternion.LookRotation(direction));
-            Quaternion targetRotation = Quaternion.LookRotation(direction);
-            //Quaternion.RotateTowards()
-
-            rig.MoveRotation(targetRotation);
-            //rig.MoveRotation(Quaternion.Lerp(transform.rotation, targetRotation, 15 * Time.deltaTime));
-            //transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, Time.deltaTime * 0.1f);
-            //ani.SetInteger("SwimState", 1);
+            targetRotation = Quaternion.LookRotation(direction.normalized);
             rig.AddForce(direction);
-
         }
 
-        //if (Input.GetMouseButtonDown(1))
-        //{
-        //    ani.SetInteger("SwimState", 2);
-        //    rig.AddForce(Vector3.forward * 100);
-        //}
-
+        rig.MoveRotation(transform.rotation = Quaternion.RotateTowards(rig.rotation, targetRotation, speed * Time.deltaTime));
     }
 
     void __uMMO_localPlayer_init()
