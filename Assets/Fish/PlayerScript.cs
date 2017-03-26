@@ -16,10 +16,10 @@ public class PlayerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             ani.SetInteger("SwimState", 1);
-            rig.AddForce(Vector3.forward * 100);
+            rig.AddForce(Camera.main.transform.forward * 5);
 
         }
 
