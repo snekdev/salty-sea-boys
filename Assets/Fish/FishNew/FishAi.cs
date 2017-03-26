@@ -21,11 +21,13 @@ public class FishAi : MonoBehaviour {
         targetRotation = Quaternion.LookRotation(Direction.normalized);
         targetRotation *= Quaternion.Euler(0, -90, 0);
         thisRigid.AddForce(Direction);
+
     }
-    float speed = 100;
+    float speed = 50;
     // Update is called once per frame
     void Update () {
         Timer += Time.deltaTime;
+        //thisAnimator.SetBool("IsMoving", true);
         if (Timer >= MaxTimer)
         {
             Timer = 0;
@@ -33,14 +35,14 @@ public class FishAi : MonoBehaviour {
 
             isMoving = System.Convert.ToBoolean(UnityEngine.Random.Range(0, 2));
             //thisAnimator.SetBool("IsMoving", isMoving);
-            thisAnimator.SetBool("IsMoving", true);
+            thisAnimator.SetBool("IsMoving", isMoving);
             if (isMoving == true)
             {
                 //Direction = new Vector3(Random.value * 2 - Random.value, Random.value * 2 - Random.value, Random.value * 2 - Random.value);
                 Direction = Random.onUnitSphere;
 
                 targetRotation = Quaternion.LookRotation(Direction.normalized);
-                targetRotation *= Quaternion.Euler(0, 90, 0);
+                targetRotation *= Quaternion.Euler(0, -90, 0);
                 thisRigid.AddForce(Direction);
             }
         }
@@ -50,5 +52,11 @@ public class FishAi : MonoBehaviour {
         }
             thisRigid.MoveRotation(transform.rotation = Quaternion.RotateTowards(thisRigid.rotation, targetRotation, speed * Time.deltaTime));
 
+    }
+    void __uMMO_serverNPO_init()
+    {
+        //thisAnimator.SetBool("IsMoving", true);
+        Debug.Log("init here");
+        Camera.main.GetComponent<ThirdPersonCamera.CameraController>().target = this.transform;
     }
 }
