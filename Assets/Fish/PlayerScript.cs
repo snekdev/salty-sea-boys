@@ -13,7 +13,7 @@ public class PlayerScript : MonoBehaviour {
         rig = GetComponent<Rigidbody>();
 
     }
-    float speed = 150;
+    float speed = 50;
     Quaternion targetRotation;
     // Update is called once per frame
     void Update () {
@@ -22,6 +22,7 @@ public class PlayerScript : MonoBehaviour {
             Vector3 direction = Camera.main.transform.forward * 15;
 
             targetRotation = Quaternion.LookRotation(direction.normalized);
+            targetRotation *= Quaternion.Euler(90, 0, 0);
             rig.AddForce(direction);
         }
 
