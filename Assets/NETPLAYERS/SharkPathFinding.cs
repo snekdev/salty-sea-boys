@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SharkPathFinding : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
+    List<List<SharkPathNode>> myListOfPossiblePaths = new List<List<SharkPathNode>>();
+    List<SharkPathNode> myBestPath = new List<SharkPathNode>();
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
