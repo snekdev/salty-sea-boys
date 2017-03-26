@@ -14,12 +14,14 @@ public class SharkPathFinding : MonoBehaviour {
 	void Update () {
 		
 	}
-    
-    public Transform FindNewOptimalPath(Vector3 startLocation, Vector3 endLocation)
+    SharkPathNode currentNode;
+    public Transform FindNewOptimalPath(Vector3 startLocation)
     {
 
         SharkPathNode startPos = findStartingNode(startLocation);
-        SharkPathNode endPos = findStartingNode(endLocation);
+        //SharkPathNode endPos = findStartingNode(endLocation);
+
+        currentNode = startPos;
 
         //for each option
         //foreach (SharkPathNode item in startPos.ThisNodesOptions)
@@ -29,19 +31,22 @@ public class SharkPathFinding : MonoBehaviour {
         //    itemOptionListnew.Add(item);
         //    //myListOfPossiblePaths.Add()
         //}
-        bool hasItBeenSolved = false;
-        while (hasItBeenSolved == false)
-        {
+        //bool hasItBeenSolved = false;
+        //while (hasItBeenSolved == false)
+        //{
+        //    //populate list
+        //    foreach (var item in currentNode.ThisNodesOptions)
+        //    {
+        //        //myListOfPossiblePaths
+        //    }
+        //}
 
-        }
+        int randomDirection = Random.Range(0, currentNode.ThisNodesOptions.Count);
 
 
-        return endPos.transform;
 
-    }
-    private void populateNextList(SharkPathNode thisNode)
-    {
-        List<List<SharkPathNode>> newLists = new List<List<SharkPathNode>>();
+        return currentNode.ThisNodesOptions[randomDirection].transform;
+
     }
     private bool checktoseeifthislistarrives(SharkPathNode thisNode)
     {

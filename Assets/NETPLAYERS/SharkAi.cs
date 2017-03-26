@@ -31,12 +31,12 @@ public class SharkAi : MonoBehaviour {
         targetRotation = Quaternion.LookRotation(Direction.normalized);
         targetRotation *= Quaternion.Euler(0, -90, 0);
 
-        PathToNextNode();
+        //PathToNextNode();
 
         float distanceToTargetNode = Vector3.Distance(transform.position, targetPosition.position);
-        if (distanceToTargetNode < 1)
+        if (distanceToTargetNode < 5)
         {
-            //PathToNextNode();
+            PathToNextNode();
         }
         else
         {
@@ -46,11 +46,12 @@ public class SharkAi : MonoBehaviour {
 
 
 	}
+    
 
     void PathToNextNode()
     {
-        //myPathFinding.FindNewOptimalPath(transform.position, targetPosition.position);
-        targetPosition.position = myPathFinding.FindNewOptimalPath(transform.position, targetPosition.position).position;
+        //myPathFinding.FindNewOptimalPath(transform.position);
+        targetPosition.position = myPathFinding.FindNewOptimalPath(transform.position).position;
     }
     void __uMMO_serverNPO_init()
     {
@@ -58,6 +59,6 @@ public class SharkAi : MonoBehaviour {
         Debug.Log("init here");
         Camera.main.GetComponent<ThirdPersonCamera.CameraController>().target = this.transform;
 
-        //PathToNextNode();
+        PathToNextNode();
     }
 }

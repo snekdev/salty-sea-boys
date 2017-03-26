@@ -912,7 +912,6 @@ GameObject:
   m_Component:
   - component: {fileID: 247529088}
   - component: {fileID: 247529090}
-  - component: {fileID: 247529089}
   m_Layer: 0
   m_Name: PathNode (5)
   m_TagString: Untagged
@@ -933,18 +932,6 @@ Transform:
   m_Father: {fileID: 176948232}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &247529089
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 247529087}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &247529090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -969,7 +956,6 @@ GameObject:
   m_Component:
   - component: {fileID: 257428436}
   - component: {fileID: 257428438}
-  - component: {fileID: 257428437}
   m_Layer: 0
   m_Name: PathNode (12)
   m_TagString: Untagged
@@ -990,18 +976,6 @@ Transform:
   m_Father: {fileID: 176948232}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &257428437
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 257428435}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &257428438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1265,7 +1239,6 @@ GameObject:
   m_Component:
   - component: {fileID: 370233823}
   - component: {fileID: 370233825}
-  - component: {fileID: 370233824}
   m_Layer: 0
   m_Name: PathNode (7)
   m_TagString: Untagged
@@ -1286,18 +1259,6 @@ Transform:
   m_Father: {fileID: 176948232}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &370233824
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 370233822}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &370233825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1439,7 +1400,6 @@ GameObject:
   m_Component:
   - component: {fileID: 468525003}
   - component: {fileID: 468525005}
-  - component: {fileID: 468525004}
   m_Layer: 0
   m_Name: PathNode (8)
   m_TagString: Untagged
@@ -1460,18 +1420,6 @@ Transform:
   m_Father: {fileID: 176948232}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &468525004
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 468525002}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &468525005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1619,7 +1567,6 @@ GameObject:
   m_Component:
   - component: {fileID: 558381315}
   - component: {fileID: 558381317}
-  - component: {fileID: 558381316}
   m_Layer: 0
   m_Name: PathNode (14)
   m_TagString: Untagged
@@ -1640,18 +1587,6 @@ Transform:
   m_Father: {fileID: 176948232}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &558381316
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 558381314}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &558381317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2443,7 +2378,6 @@ GameObject:
   m_Component:
   - component: {fileID: 872165123}
   - component: {fileID: 872165125}
-  - component: {fileID: 872165124}
   m_Layer: 0
   m_Name: PathNode (1)
   m_TagString: Untagged
@@ -2464,18 +2398,6 @@ Transform:
   m_Father: {fileID: 176948232}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &872165124
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 872165122}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &872165125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2643,7 +2565,6 @@ GameObject:
   m_Component:
   - component: {fileID: 894899414}
   - component: {fileID: 894899416}
-  - component: {fileID: 894899415}
   m_Layer: 0
   m_Name: PathNode (11)
   m_TagString: Untagged
@@ -2664,18 +2585,6 @@ Transform:
   m_Father: {fileID: 176948232}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &894899415
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 894899413}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &894899416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2855,7 +2764,6 @@ GameObject:
   m_Component:
   - component: {fileID: 977669428}
   - component: {fileID: 977669430}
-  - component: {fileID: 977669429}
   m_Layer: 0
   m_Name: PathNode (2)
   m_TagString: Untagged
@@ -2876,18 +2784,6 @@ Transform:
   m_Father: {fileID: 176948232}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &977669429
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 977669427}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &977669430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3106,7 +3002,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1137199968}
   - component: {fileID: 1137199970}
-  - component: {fileID: 1137199969}
   m_Layer: 0
   m_Name: PathNode (13)
   m_TagString: Untagged
@@ -3127,18 +3022,6 @@ Transform:
   m_Father: {fileID: 176948232}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1137199969
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1137199967}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1137199970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3479,7 +3362,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1262334973}
   - component: {fileID: 1262334975}
-  - component: {fileID: 1262334974}
   m_Layer: 0
   m_Name: PathNode (15)
   m_TagString: Untagged
@@ -3500,18 +3382,6 @@ Transform:
   m_Father: {fileID: 176948232}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1262334974
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1262334972}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1262334975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3596,7 +3466,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1362298808}
   - component: {fileID: 1362298810}
-  - component: {fileID: 1362298809}
   m_Layer: 0
   m_Name: PathNode (0)
   m_TagString: Untagged
@@ -3617,18 +3486,6 @@ Transform:
   m_Father: {fileID: 176948232}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1362298809
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1362298807}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1362298810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3956,7 +3813,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1411682319}
   - component: {fileID: 1411682321}
-  - component: {fileID: 1411682320}
   m_Layer: 0
   m_Name: PathNode (9)
   m_TagString: Untagged
@@ -3977,18 +3833,6 @@ Transform:
   m_Father: {fileID: 176948232}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1411682320
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1411682318}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1411682321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4068,7 +3912,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1438100309}
   - component: {fileID: 1438100311}
-  - component: {fileID: 1438100310}
   m_Layer: 0
   m_Name: PathNode (10)
   m_TagString: Untagged
@@ -4089,18 +3932,6 @@ Transform:
   m_Father: {fileID: 176948232}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1438100310
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1438100308}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1438100311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4487,7 +4318,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1638109930}
   - component: {fileID: 1638109932}
-  - component: {fileID: 1638109931}
   m_Layer: 0
   m_Name: PathNode (3)
   m_TagString: Untagged
@@ -4508,18 +4338,6 @@ Transform:
   m_Father: {fileID: 176948232}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1638109931
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1638109929}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1638109932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5370,7 +5188,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2107683619}
   - component: {fileID: 2107683621}
-  - component: {fileID: 2107683620}
   m_Layer: 0
   m_Name: PathNode (4)
   m_TagString: Untagged
@@ -5391,18 +5208,6 @@ Transform:
   m_Father: {fileID: 176948232}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &2107683620
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2107683618}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2107683621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5478,7 +5283,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2123674948}
   - component: {fileID: 2123674950}
-  - component: {fileID: 2123674949}
   m_Layer: 0
   m_Name: PathNode (6)
   m_TagString: Untagged
@@ -5499,18 +5303,6 @@ Transform:
   m_Father: {fileID: 176948232}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &2123674949
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2123674947}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2123674950
 MonoBehaviour:
   m_ObjectHideFlags: 0
