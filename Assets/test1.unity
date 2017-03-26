@@ -1599,7 +1599,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c00835013544f444c937a5ac1dd69d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ThisNodesOptions: []
+  ThisNodesOptions:
+  - {fileID: 1137199970}
+  - {fileID: 894899416}
 --- !u!4 &579456585 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4062017532691758, guid: e33fa1a7f0f1a1740b4c9678c8187125,
