@@ -1,0 +1,34 @@
+THANK YOU FOR CHOOSING uMMO!
+-----
+uMMO 2.0.14 - UNET Edition
+ALPHA VERSION
+All aspects of 
+implementation can still 
+be subject to change! 
+Bugs, lower performance 
+and uncompleted aspects 
+are still to be expected. 
+Report and comment to 
+support@softrare.eu
+
+Stay up-to-date about 
+uMMO's developement by
+following 
+https://twitter.com/SoftRare
+-----
+MINI TUTORIAL:
+Each game instance (including
+in the Editor) can either be 
+server or client.
+
+Determine on the uMMO prefab
+whether to compile a server
+or a client or select "Custom
+Connector" for a default
+testing interface. 
+
+We are working on proper 
+documentation. In the meantime
+please refer to in-Editor 
+documentation and our support
+channels.
