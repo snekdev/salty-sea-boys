@@ -18,8 +18,17 @@ public class PlayerScript : MonoBehaviour {
 	void Update () {
         if (Input.GetMouseButtonDown(1))
         {
+            Vector3 direction = Camera.main.transform.forward * 15;
+
+            //rig.MoveRotation(Quaternion.LookRotation(direction));
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            //Quaternion.RotateTowards()
+
+            rig.MoveRotation(targetRotation);
+            //rig.MoveRotation(Quaternion.Lerp(transform.rotation, targetRotation, 15 * Time.deltaTime));
+            //transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, Time.deltaTime * 0.1f);
             ani.SetInteger("SwimState", 1);
-            rig.AddForce(Camera.main.transform.forward * 5);
+            rig.AddForce(direction);
 
         }
 
