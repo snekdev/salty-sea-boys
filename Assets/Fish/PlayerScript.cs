@@ -27,7 +27,7 @@ public class PlayerScript : MonoBehaviour {
             rig.MoveRotation(targetRotation);
             //rig.MoveRotation(Quaternion.Lerp(transform.rotation, targetRotation, 15 * Time.deltaTime));
             //transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, Time.deltaTime * 0.1f);
-            ani.SetInteger("SwimState", 1);
+            //ani.SetInteger("SwimState", 1);
             rig.AddForce(direction);
 
         }
