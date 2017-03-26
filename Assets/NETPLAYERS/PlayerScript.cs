@@ -50,6 +50,18 @@ public class PlayerScript : MonoBehaviour {
     void __uMMO_localPlayer_init()
     {
         Debug.Log("init here");
+
+     
+           GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
+        if (spawnPoints.Length > 0)
+        {
+          transform.position = spawnPoints[0].transform.position;
+        }
+        else
+        {
+          
+        }
+
         Camera.main.GetComponent<ThirdPersonCamera.CameraController>().target = this.transform;
     }
 }
