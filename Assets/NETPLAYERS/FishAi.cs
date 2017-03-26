@@ -57,6 +57,6 @@ public class FishAi : MonoBehaviour {
     {
         //thisAnimator.SetBool("IsMoving", true);
         Debug.Log("init here");
-        Camera.main.GetComponent<ThirdPersonCamera.CameraController>().target = this.transform;
+        //Camera.main.GetComponent<ThirdPersonCamera.CameraController>().target = this.transform;
     }
 }
