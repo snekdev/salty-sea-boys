@@ -19,23 +19,31 @@ Platform assembly: D:\GAMEJAM\FISHGAME\salty-sea-boys\FishGame2_Data\Managed\Mon
 Loading D:\GAMEJAM\FISHGAME\salty-sea-boys\FishGame2_Data\Managed\MongoDB.Bson.dll into Unity Child Domain
 Platform assembly: D:\GAMEJAM\FISHGAME\salty-sea-boys\FishGame2_Data\Managed\SoftRare.Serialization.dll (this message is harmless)
 Loading D:\GAMEJAM\FISHGAME\salty-sea-boys\FishGame2_Data\Managed\SoftRare.Serialization.dll into Unity Child Domain
-- Completed reload, in  0.020 seconds
+- Completed reload, in  0.018 seconds
 Platform assembly: D:\GAMEJAM\FISHGAME\salty-sea-boys\FishGame2_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: D:\GAMEJAM\FISHGAME\salty-sea-boys\FishGame2_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 60Hz; virtual: 3840x1245 at -1920,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 1.202176 ms
+UnloadTime: 1.252955 ms
 DontDestroyOnLoad only work for root GameObjects or components on root GameObjects.
  
 (Filename:  Line: 462)
 
 Setting up 4 worker threads for Enlighten.
-  Thread -> id: 4fe8 -> priority: 1 
-  Thread -> id: 21a4 -> priority: 1 
-  Thread -> id: cc -> priority: 1 
-  Thread -> id: d6c -> priority: 1 
+  Thread -> id: 894 -> priority: 1 
+  Thread -> id: 174c -> priority: 1 
+  Thread -> id: 3c3c -> priority: 1 
+  Thread -> id: 30a0 -> priority: 1 
+init here
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+init here
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
 ArgumentNullException: Argument cannot be null.
 Parameter name: key
   at System.Collections.Generic.Dictionary`2[UnityEngine.Networking.NetworkConnection,SoftRare.Net.NetObject].set_Item (UnityEngine.Networking.NetworkConnection key, SoftRare.Net.NetObject value) [0x00000] in <filename unknown>:0 
@@ -43,4 +51,20 @@ Parameter name: key
   at SoftRare.Net.NetObject.Start () [0x00000] in <filename unknown>:0 
  
 (Filename:  Line: -1)
+
+init here
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+init here
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+init here
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+init here
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
