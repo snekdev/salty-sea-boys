@@ -22,7 +22,7 @@ public class PlayerScript : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         Timer += Time.deltaTime;
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButton(1))
         {
             Timer = 0;
             isMoving = true;
@@ -30,7 +30,7 @@ public class PlayerScript : MonoBehaviour {
             Vector3 direction = Camera.main.transform.forward * 15;
 
             targetRotation = Quaternion.LookRotation(direction.normalized);
-            targetRotation *= Quaternion.Euler(90, 0, 0);
+           // targetRotation *= Quaternion.Euler(90, 0, 0);
             rig.AddForce(direction);
         }
         if (Timer < MaxTimer)
@@ -42,7 +42,18 @@ public class PlayerScript : MonoBehaviour {
             isMoving = false;
         }
 
-        ani.SetBool("isMoving", true);
+        //Timer = 0;
+        ////isMoving = true;
+        ////ani.SetBool("IsMoving", true);
+        //Vector3 direction = Camera.main.transform.forward;
+
+        //targetRotation = Quaternion.LookRotation(direction);
+        //targetRotation *= Quaternion.Euler(90, 0, 0);
+        //rig.AddForce(direction);
+
+      //  isMoving = true;
+
+        ani.SetBool("isMoving", isMoving);
         
         rig.MoveRotation(transform.rotation = Quaternion.RotateTowards(rig.rotation, targetRotation, speed * Time.deltaTime));
     }
