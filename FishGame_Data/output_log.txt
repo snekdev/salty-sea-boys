@@ -19,29 +19,72 @@ Platform assembly: D:\GAMEJAM\FISHGAME\salty-sea-boys\FishGame_Data\Managed\Mong
 Loading D:\GAMEJAM\FISHGAME\salty-sea-boys\FishGame_Data\Managed\MongoDB.Bson.dll into Unity Child Domain
 Platform assembly: D:\GAMEJAM\FISHGAME\salty-sea-boys\FishGame_Data\Managed\SoftRare.Serialization.dll (this message is harmless)
 Loading D:\GAMEJAM\FISHGAME\salty-sea-boys\FishGame_Data\Managed\SoftRare.Serialization.dll into Unity Child Domain
-- Completed reload, in  0.155 seconds
+- Completed reload, in  0.019 seconds
 Platform assembly: D:\GAMEJAM\FISHGAME\salty-sea-boys\FishGame_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: D:\GAMEJAM\FISHGAME\salty-sea-boys\FishGame_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 60Hz; virtual: 3840x1245 at -1920,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 1.213594 ms
+UnloadTime: 0.978928 ms
 DontDestroyOnLoad only work for root GameObjects or components on root GameObjects.
  
 (Filename:  Line: 462)
 
 Setting up 4 worker threads for Enlighten.
-  Thread -> id: 3e08 -> priority: 1 
-  Thread -> id: 3d48 -> priority: 1 
-  Thread -> id: 3b44 -> priority: 1 
-  Thread -> id: 32b0 -> priority: 1 
+  Thread -> id: 3780 -> priority: 1 
+  Thread -> id: 39f0 -> priority: 1 
+  Thread -> id: 3e24 -> priority: 1 
+  Thread -> id: 3f28 -> priority: 1 
 Platform assembly: D:\GAMEJAM\FISHGAME\salty-sea-boys\FishGame_Data\Managed\System.Xml.dll (this message is harmless)
 reactor filed to acomplish request with code {1234}, bytesReceived {0}
 reactor filed to acomplish request with code {1234}, bytesReceived {0}
 reactor filed to acomplish request with code {1234}, bytesReceived {0}
 reactor filed to acomplish request with code {1234}, bytesReceived {0}
-Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:57296}
+Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:62184}
+ServerDisconnected due to error: Timeout
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:50551}
+ServerDisconnected due to error: Timeout
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:58985}
+ServerDisconnected due to error: Timeout
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:59028}
+ServerDisconnected due to error: Timeout
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:51878}
+ServerDisconnected due to error: Timeout
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:54103}
 ServerDisconnected due to error: Timeout
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
