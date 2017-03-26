@@ -14,4 +14,9 @@ public class SharkPathFinding : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    void FindNewOptimalPath()
+    {
+
+    }
 }
