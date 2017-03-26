@@ -21,9 +21,32 @@ public class SharkPathFinding : MonoBehaviour {
         SharkPathNode startPos = findStartingNode(startLocation);
         SharkPathNode endPos = findStartingNode(endLocation);
 
+        //for each option
+        //foreach (SharkPathNode item in startPos.ThisNodesOptions)
+        //{
+        //    //add to list and go one layer deeper
+        //    List<SharkPathNode> itemOptionListnew = new List<SharkPathNode>();
+        //    itemOptionListnew.Add(item);
+        //    //myListOfPossiblePaths.Add()
+        //}
+        bool hasItBeenSolved = false;
+        while (hasItBeenSolved == false)
+        {
+
+        }
+
 
         return endPos.transform;
 
+    }
+    private void populateNextList(SharkPathNode thisNode)
+    {
+        List<List<SharkPathNode>> newLists = new List<List<SharkPathNode>>();
+    }
+    private bool checktoseeifthislistarrives(SharkPathNode thisNode)
+    {
+
+        return false;
     }
     SharkPathNode findStartingNode(Vector3 startLocation)
     {

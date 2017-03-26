@@ -1,0 +1,108 @@
+﻿#pragma kernel CSIntegrate
+#pragma kernel CSCollisions
+#pragma kernel CSDistanceJoints
+#pragma kernel CSPointJoints
+#pragma kernel CSReset
+#pragma kernel CSBodyBroadPhase
+#pragma kernel CSBodyNarrowPhase
+
+#include "Assets/GPUTools/Physics/Shaders/Compute/GPBody.cginc"
+#include "Assets/GPUTools/Physics/Shaders/Compute/GPDistanceJoint.cginc"
+#include "Assets/GPUTools/Physics/Shaders/Compute/GPPointJoint.cginc"
+#include "Assets/GPUTools/Physics/Shaders/Compute/GPSphereCollider.cginc"
+#include "Assets/GPUTools/Physics/Shaders/Compute/GPLineSphereCollider.cginc"
+#include "Assets/GPUTools/Physics/Shaders/Compute/GPSkinnedMeshCollider.cginc"
+
+
+/// --------------------------------------- INPUT
+
+float drag;
+float dt;
+float3 gravity;
+float4 wind;
+
+RWStructuredBuffer<float4x4> matrices;
+
+RWStructuredBuffer<Body> bodies;
+RWStructuredBuffer<SphereCollider> sphereColliders;
+
+RWStructuredBuffer<Body> kinematicBodies;
+RWStructuredBuffer<SphereCollider> kinematicSphereColliders;
+RWStructuredBuffer<LineSphereCollider> kinematicsLineSphereColliders;
+
+RWStructuredBuffer<PointJoint> pointJoints;
+RWStructuredBuffer<DistanceJoint> distanceJoints;
+
+/// --------------------------------------- FUNCTIONS
+
+[numthreads(1024, 1, 1)]
+void CSReset(uint3 id : SV_DispatchThreadID)
+{
+	if (id.x >= bodies.Length)
+		return;
+
+	Reset(bodies, id);
+}
+
+[numthreads(1024,1,1)]
+void CSIntegrate (uint3 id : SV_DispatchThreadID)
+{
+	if (id.x >= bodies.Length)
+		return;
+
+	Integrate(bodies, id, gravity, drag, dt);
+	Wind(bodies, id, wind, dt);
+}
+
+[numthreads(1024,1,1)]
+void CSCollisions (uint3 id : SV_DispatchThreadID)
+{
+	//if (id.x >= sphereColliders.Length)
+	//	return;
+
+	SphereCollider sphere = sphereColliders[id.x];
+	SphereSphereColisionSolve(sphere, bodies, kinematicBodies, kinematicSphereColliders, dt);
+	SphereLineSphereColisionSolve(sphere, bodies, kinematicBodies, kinematicsLineSphereColliders, dt);
+}
+
+int startDistanceJointGroup;
+int sizeDistanceJointGroup;
+
+[numthreads(1024,1,1)]
+void CSDistanceJoints (uint3 id : SV_DispatchThreadID)
+{
+	int i = startDistanceJointGroup + id.x;
+	if(i < startDistanceJointGroup + sizeDistanceJointGroup)
+	{
+		DistanceJointsSolve(distanceJoints[i], bodies, dt);
+	}
+}
+
+[numthreads(1024,1,1)]
+void CSPointJoints (uint3 id : SV_DispatchThreadID)
+{
+	if (id.x >= pointJoints.Length)
+		return;
+
+	PointJointSolve(pointJoints[id.x], bodies, matrices, dt);
+}
+
+RWStructuredBuffer<float3> bodyMeshVertexBuffer;
+RWStructuredBuffer<int> narrowMeshIndexBuffer;
+
+[numthreads(1024,1,1)]
+void CSBodyBroadPhase (uint3 id : SV_DispatchThreadID)
+{
+	if (id.x >= bodies.Length)
+		return;
+
+	Body body = bodies[id.x];
+	BodyMeshBroadPhase(id.x, body, narrowMeshIndexBuffer, bodyMeshVertexBuffer);
+}
+
+[numthreads(1024,1,1)]
+void CSBodyNarrowPhase (uint3 id : SV_DispatchThreadID)
+{
+	SphereCollider sphere = sphereColliders[id.x];
+	BodyMeshNarrowPhase(sphere, bodies, narrowMeshIndexBuffer, bodyMeshVertexBuffer, dt);
+}
