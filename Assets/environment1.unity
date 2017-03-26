@@ -728,7 +728,7 @@ Prefab:
     - target: {fileID: 11452970, guid: 745076acd85d2ac408348cc5139a9729, type: 2}
       propertyPath: m_PlayerPrefab
       value: 
-      objectReference: {fileID: 1409849727492926, guid: 7cbe5fd2f41cd0148a61aae309a95edd,
+      objectReference: {fileID: 1155644893916444, guid: e7778622bc4e4384880328d1489fe36d,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 745076acd85d2ac408348cc5139a9729, type: 2}
@@ -1053,6 +1053,7 @@ GameObject:
   - component: {fileID: 808751405}
   - component: {fileID: 808751404}
   - component: {fileID: 808751412}
+  - component: {fileID: 808751410}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1127,7 +1128,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.01
+  near clip plane: 0.1
   far clip plane: 1000
   field of view: 80
   orthographic: 0
@@ -1160,13 +1161,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &808751412
+--- !u!114 &808751410
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 808751403}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 563f6e971f939a14597f49d832cd1f01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraEnabled: 1
+  cameraMode: 0
+  controllerEnabled: 0
+  controllerInvertY: 1
+  mouseInvertY: 0
+  lockMouseCursor: 1
+  mouseSensitivity: {x: 1.5, y: 1}
+  controllerSensitivity: {x: 1, y: 0.7}
+  x: 0
+  y: 0
+--- !u!114 &808751412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 808751403}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd27772797032a445aabcb368b6b0f82, type: 3}
   m_Name: 
