@@ -1605,7 +1605,7 @@ Prefab:
     - target: {fileID: 11452970, guid: 745076acd85d2ac408348cc5139a9729, type: 2}
       propertyPath: m_PlayerPrefab
       value: 
-      objectReference: {fileID: 1856169664685172, guid: e7778622bc4e4384880328d1489fe36d,
+      objectReference: {fileID: 1974547856439562, guid: bb0b5f4a19c95ab45953178a868e033c,
         type: 2}
     - target: {fileID: 450638, guid: 745076acd85d2ac408348cc5139a9729, type: 2}
       propertyPath: m_LocalPosition.x
