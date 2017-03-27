@@ -41,11 +41,35 @@ public class SharkPathFinding : MonoBehaviour {
         //    }
         //}
 
-        int randomDirection = Random.Range(0, currentNode.ThisNodesOptions.Count);
+        //roll the dice 10 times to try and minimise the odds of back tracking without making it impossible
+        for (int i = 0; i < 10; i++)
+        {
+            int randomDirection = Random.Range(0, currentNode.ThisNodesOptions.Count);
+            SharkPathNode testNode = startPos.ThisNodesOptions[randomDirection];
+            //if (currentNode != testNode)
+            //{
+            //    currentNode = testNode;
+            //    break;
+            //}
+
+            Vector3 directionToTarget = testNode.transform.position - currentNode.transform.position;
+            float dSqrToTarget = directionToTarget.sqrMagnitude;
+            float closestDistanceSqr = Mathf.Infinity;
+            //if (dSqrToTarget < closestDistanceSqr)
+            if (dSqrToTarget > 15)
+            {
+                currentNode = testNode;
+                break;
+            }
+
+
+        }
 
 
 
-        return currentNode.ThisNodesOptions[randomDirection].transform;
+
+        //return currentNode.ThisNodesOptions[randomDirection].transform;
+        return currentNode.transform;
 
     }
     private bool checktoseeifthislistarrives(SharkPathNode thisNode)
