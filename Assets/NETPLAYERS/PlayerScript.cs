@@ -13,14 +13,20 @@ public class PlayerScript : MonoBehaviour {
 
     GameObject waterTransform;
 
+    public int PLAYERHEALTH;
+
+    GameObject myTextMesh;
 
 
     // Use this for initialization
     void Start () {
+        PLAYERHEALTH = 1000;
         ani = GetComponent<Animator>();
         rig = GetComponent<Rigidbody>();
 
         waterTransform = GameObject.FindGameObjectsWithTag("Water")[0];
+
+        myTextMesh = GameObject.FindGameObjectsWithTag("HUDText")[0];
 
     }
     public float speed = 50;
@@ -59,6 +65,8 @@ public class PlayerScript : MonoBehaviour {
         {
             rig.AddForce(Vector3.down * 20);
         }
+
+        myTextMesh.GetComponent<TextMesh>().text = PLAYERHEALTH.ToString();
     }
 
     void __uMMO_localPlayer_init()
