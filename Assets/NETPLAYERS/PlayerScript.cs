@@ -48,20 +48,12 @@ public class PlayerScript : MonoBehaviour {
             isMoving = false;
         }
 
-        //Timer = 0;
-        ////isMoving = true;
-        ////ani.SetBool("IsMoving", true);
-        //Vector3 direction = Camera.main.transform.forward;
-
-        //targetRotation = Quaternion.LookRotation(direction);
-        //targetRotation *= Quaternion.Euler(90, 0, 0);
-        //rig.AddForce(direction);
-
-      //  isMoving = true;
-
         ani.SetBool("isMoving", isMoving);
-        
-        rig.MoveRotation(transform.rotation = Quaternion.RotateTowards(rig.rotation, targetRotation, speed * Time.deltaTime));
+    //    transform.rotation = Quaternion.RotateTowards(rig.rotation, targetRotation, speed * Time.deltaTime);
+
+        rig.MoveRotation(Quaternion.RotateTowards(rig.rotation, targetRotation, speed * Time.deltaTime));
+
+      //  rig.MoveRotation(transform.rotation = Quaternion.RotateTowards(rig.rotation, targetRotation, speed * Time.deltaTime));
 
         if (this.transform.position.y > waterTransform.transform.position.y)
         {
