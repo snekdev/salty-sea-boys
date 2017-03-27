@@ -17,7 +17,7 @@ public class PlayerScript : MonoBehaviour {
         rig = GetComponent<Rigidbody>();
 
     }
-    float speed = 50;
+    public float speed = 50;
     Quaternion targetRotation;
     // Update is called once per frame
     void Update () {
