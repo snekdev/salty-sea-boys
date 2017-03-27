@@ -8,6 +8,7 @@ TagManager:
   - Water
   - Fish
   - Shark
+  - HUDText
   layers:
   - Default
   - TransparentFX
