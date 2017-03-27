@@ -11,6 +11,9 @@ public class FishAi : MonoBehaviour {
     float Speed = 250;
     bool isMoving = false;
     Quaternion targetRotation;
+
+    Transform Owner;
+
     // Use this for initialization
     void Start () {
         thisAnimator = GetComponent<Animator>();
@@ -22,41 +25,63 @@ public class FishAi : MonoBehaviour {
         targetRotation *= Quaternion.Euler(0, -90, 0);
         thisRigid.AddForce(Direction);
 
+
+
     }
     float speed = 50;
     // Update is called once per frame
     void Update () {
-        Timer += Time.deltaTime;
-        //thisAnimator.SetBool("IsMoving", true);
-        if (Timer >= MaxTimer)
+
+        if (Owner == null)
         {
-            Timer = 0;
+            Timer += Time.deltaTime;
+            //thisAnimator.SetBool("IsMoving", true);
+            if (Timer >= MaxTimer)
+            {
+                Timer = 0;
 
 
-            isMoving = System.Convert.ToBoolean(UnityEngine.Random.Range(0, 2));
-            //thisAnimator.SetBool("IsMoving", isMoving);
-            thisAnimator.SetBool("IsMoving", isMoving);
+                isMoving = System.Convert.ToBoolean(UnityEngine.Random.Range(0, 2));
+                //thisAnimator.SetBool("IsMoving", isMoving);
+                thisAnimator.SetBool("IsMoving", isMoving);
+                if (isMoving == true)
+                {
+                    //Direction = new Vector3(Random.value * 2 - Random.value, Random.value * 2 - Random.value, Random.value * 2 - Random.value);
+                    Direction = Random.onUnitSphere;
+
+                    targetRotation = Quaternion.LookRotation(Direction.normalized);
+                    targetRotation *= Quaternion.Euler(0, -90, 0);
+                    thisRigid.AddForce(Direction);
+                }
+            }
             if (isMoving == true)
             {
-                //Direction = new Vector3(Random.value * 2 - Random.value, Random.value * 2 - Random.value, Random.value * 2 - Random.value);
-                Direction = Random.onUnitSphere;
-
-                targetRotation = Quaternion.LookRotation(Direction.normalized);
-                targetRotation *= Quaternion.Euler(0, -90, 0);
                 thisRigid.AddForce(Direction);
             }
+            thisRigid.MoveRotation(transform.rotation = Quaternion.RotateTowards(thisRigid.rotation, targetRotation, speed * Time.deltaTime));
         }
-        if (isMoving == true)
+        else
         {
+            Direction = Owner.position - this.transform.position;
+
+            targetRotation = Quaternion.LookRotation(Direction.normalized);
+            targetRotation *= Quaternion.Euler(0, -90, 0);
             thisRigid.AddForce(Direction);
         }
-            thisRigid.MoveRotation(transform.rotation = Quaternion.RotateTowards(thisRigid.rotation, targetRotation, speed * Time.deltaTime));
-
     }
     void __uMMO_serverNPO_init()
     {
+        Owner = null;
         //thisAnimator.SetBool("IsMoving", true);
         Debug.Log("init here");
         //Camera.main.GetComponent<ThirdPersonCamera.CameraController>().target = this.transform;
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        //Destroy(other.gameObject);
+        if (other.gameObject.tag == "Player")
+        {
+            Owner = other.transform;
+        }
     }
 }

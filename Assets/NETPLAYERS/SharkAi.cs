@@ -10,6 +10,9 @@ public class SharkAi : MonoBehaviour {
     bool isHunting = false;
 
     public Transform targetPosition;
+    public SharksEyes sharkEyes;
+
+    float timeSinceLastSeen = 0;
 
     Quaternion targetRotation;
     Vector3 Direction = Vector3.zero;
@@ -26,23 +29,72 @@ public class SharkAi : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        Direction = targetPosition.position - transform.position;
-
-        targetRotation = Quaternion.LookRotation(Direction.normalized);
-        targetRotation *= Quaternion.Euler(0, -90, 0);
-
-        //PathToNextNode();
-
-        float distanceToTargetNode = Vector3.Distance(transform.position, targetPosition.position);
-        if (distanceToTargetNode < 5)
+        if (sharkEyes.isVisible == true)
         {
-            PathToNextNode();
+            timeSinceLastSeen = 30;
+        }
+        if (timeSinceLastSeen > 0)
+        {
+            timeSinceLastSeen -= Time.deltaTime;
+            isHunting = true;
         }
         else
         {
-            thisRigid.AddForce(Direction * moveSpeed);
-            thisRigid.MoveRotation(transform.rotation = Quaternion.RotateTowards(thisRigid.rotation, targetRotation, speed * Time.deltaTime));
+            timeSinceLastSeen = 0;
+            isHunting = false;
         }
+
+        if (isHunting == true)
+        {
+            targetPosition.position = sharkEyes.LastSeenAt;
+
+            float distanceToTargetLastKnownPosition = Vector3.Distance(transform.position, targetPosition.position);
+            if (distanceToTargetLastKnownPosition < 5)
+            {
+                targetRotation.eulerAngles = new Vector3(this.transform.eulerAngles.x + (Mathf.Sin(Time.deltaTime) * 50), this.transform.eulerAngles.y, this.transform.eulerAngles.z + (Mathf.Sin(Time.deltaTime) * 50));
+
+                //thisRigid.AddForce(Direction * moveSpeed * 1.5f);
+                thisRigid.MoveRotation(transform.rotation = Quaternion.RotateTowards(thisRigid.rotation, targetRotation, speed * Time.deltaTime));
+            }
+            else
+            {
+                //move to player or last know position
+                //should probably raycast to look for them more accurately once identified
+                Direction = targetPosition.position - transform.position;
+
+
+
+                targetRotation = Quaternion.LookRotation(Direction.normalized);
+                targetRotation *= Quaternion.Euler(0, -90, 0);
+
+                thisRigid.AddForce(Direction * moveSpeed * 1.5f);
+                thisRigid.MoveRotation(transform.rotation = Quaternion.RotateTowards(thisRigid.rotation, targetRotation, speed * Time.deltaTime));
+            }
+
+
+
+        }
+        else
+        {
+            Direction = targetPosition.position - transform.position;
+
+            targetRotation = Quaternion.LookRotation(Direction.normalized);
+            targetRotation *= Quaternion.Euler(0, -90, 0);
+
+            //PathToNextNode();
+
+            float distanceToTargetNode = Vector3.Distance(transform.position, targetPosition.position);
+            if (distanceToTargetNode < 5)
+            {
+                PathToNextNode();
+            }
+            else
+            {
+                thisRigid.AddForce(Direction * moveSpeed);
+                thisRigid.MoveRotation(transform.rotation = Quaternion.RotateTowards(thisRigid.rotation, targetRotation, speed * Time.deltaTime));
+            }
+        }
+       
 
 
 	}
