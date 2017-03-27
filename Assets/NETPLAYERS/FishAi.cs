@@ -16,6 +16,7 @@ public class FishAi : MonoBehaviour {
     Transform falseFlag;
 
     GameObject waterTransform;
+    GameObject shark;
 
     //public ParticleSystem particleSystemz;
 
@@ -31,11 +32,14 @@ public class FishAi : MonoBehaviour {
         thisRigid.AddForce(Direction);
 
         waterTransform = GameObject.FindGameObjectsWithTag("Water")[0];
+        shark = GameObject.FindGameObjectsWithTag("Shark")[0];
 
         //particleSystemz = GetComponent<ParticleSystem>();
 
     }
     float speed = 50;
+    bool SHARKATTACK = false;
+
     // Update is called once per frame
     void Update () {
         //ParticleSystem.EmissionModule em = particleSystem.emission;
@@ -47,83 +51,101 @@ public class FishAi : MonoBehaviour {
         //startSize = 0.0f;
         //main.startSize = startSize;
 
-
-
-        if (Owner == null)
+        float distanceFromShark = Vector3.Distance(this.transform.position, shark.transform.position);
+        if (distanceFromShark < 50)
         {
-
-
-            //particleSystem.transform.gameObject.SetActive(false);
-            //particleSystem.time = 0;
-
-            //particleSystem.emissionRate = 0;
-            //particleSystem.emission.rateOverTime = 0;
-
-            Timer += Time.deltaTime;
-            //thisAnimator.SetBool("IsMoving", true);
-            if (Timer >= MaxTimer)
-            {
-                Timer = 0;
-
-
-                isMoving = System.Convert.ToBoolean(UnityEngine.Random.Range(0, 2));
-                //thisAnimator.SetBool("IsMoving", isMoving);
-                thisAnimator.SetBool("IsMoving", isMoving);
-                if (isMoving == true)
-                {
-                    //Direction = new Vector3(Random.value * 2 - Random.value, Random.value * 2 - Random.value, Random.value * 2 - Random.value);
-                    Direction = Random.onUnitSphere;
-
-                    targetRotation = Quaternion.LookRotation(Direction.normalized);
-                    targetRotation *= Quaternion.Euler(0, -90, 0);
-                    thisRigid.AddForce(Direction);
-                }
-            }
-            if (isMoving == true)
-            {
-                thisRigid.AddForce(Direction);
-            }
-            thisRigid.MoveRotation(transform.rotation = Quaternion.RotateTowards(thisRigid.rotation, targetRotation, speed * Time.deltaTime));
+            SHARKATTACK = true;
         }
         else
         {
+            SHARKATTACK = false;
+        }
 
-            //particleSystem.emission.enabled = true;
-            //ParticleSystem.EmissionModule em = particleSystem.emission;
-            //em.enabled = true;
-            //particleSystem.emission = em;
+        if (SHARKATTACK == false)
+        {
 
-            //particleSystem.emission.enabled = true;
-
-            //particleSystem.transform.gameObject.SetActive(true);
-
-            float distance = Vector3.Distance(Owner.position, this.transform.position);
-            if (distance < 50)
+            if (Owner == null)
             {
-                Direction = Owner.position - this.transform.position;
-
-                targetRotation = Quaternion.LookRotation(Direction.normalized);
-                targetRotation *= Quaternion.Euler(0, -90, 0);
-                thisRigid.AddForce(Direction);
 
 
-                //var main = particleSystemz.emission;
-                ////Set the particle size.
-                //var isemitting = main.enabled;
-                //isemitting = true;
-                //main.enabled = isemitting;
+                //particleSystem.transform.gameObject.SetActive(false);
+                //particleSystem.time = 0;
+
+                //particleSystem.emissionRate = 0;
+                //particleSystem.emission.rateOverTime = 0;
+
+                Timer += Time.deltaTime;
+                //thisAnimator.SetBool("IsMoving", true);
+                if (Timer >= MaxTimer)
+                {
+                    Timer = 0;
+
+
+                    isMoving = System.Convert.ToBoolean(UnityEngine.Random.Range(0, 2));
+                    //thisAnimator.SetBool("IsMoving", isMoving);
+                    thisAnimator.SetBool("IsMoving", isMoving);
+                    if (isMoving == true)
+                    {
+                        //Direction = new Vector3(Random.value * 2 - Random.value, Random.value * 2 - Random.value, Random.value * 2 - Random.value);
+                        Direction = Random.onUnitSphere;
+
+                        targetRotation = Quaternion.LookRotation(Direction.normalized);
+                        targetRotation *= Quaternion.Euler(0, -90, 0);
+                        thisRigid.AddForce(Direction);
+                    }
+                }
+                if (isMoving == true)
+                {
+                    thisRigid.AddForce(Direction);
+                }
+                thisRigid.MoveRotation(transform.rotation = Quaternion.RotateTowards(thisRigid.rotation, targetRotation, speed * Time.deltaTime));
             }
             else
             {
-                Owner = falseFlag;
+
+                //particleSystem.emission.enabled = true;
+                //ParticleSystem.EmissionModule em = particleSystem.emission;
+                //em.enabled = true;
+                //particleSystem.emission = em;
+
+                //particleSystem.emission.enabled = true;
+
+                //particleSystem.transform.gameObject.SetActive(true);
+
+                float distance = Vector3.Distance(Owner.position, this.transform.position);
+                if (distance < 50)
+                {
+                    Direction = Owner.position - this.transform.position;
+
+                    targetRotation = Quaternion.LookRotation(Direction.normalized);
+                    //targetRotation *= Quaternion.Euler(0, -90, 0);
+                    thisRigid.AddForce(Direction);
+
+
+                    //var main = particleSystemz.emission;
+                    ////Set the particle size.
+                    //var isemitting = main.enabled;
+                    //isemitting = true;
+                    //main.enabled = isemitting;
+                }
+                else
+                {
+                    Owner = falseFlag;
+                }
+
             }
-
         }
-
+        else
+        {
+            Vector3 SharkDirection = -(shark.transform.position - this.transform.position);
+            targetRotation = Quaternion.LookRotation(Direction.normalized);
+            thisRigid.AddForce(Direction);
+        }
         if (this.transform.position.y > waterTransform.transform.position.y)
         {
             thisRigid.AddForce(Vector3.down * 20);
         }
+        
     }
     void __uMMO_serverNPO_init()
     {
