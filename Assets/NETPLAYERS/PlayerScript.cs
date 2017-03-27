@@ -11,10 +11,14 @@ public class PlayerScript : MonoBehaviour {
     float MaxTimer = 1;
     bool isMoving = false;
 
+    GameObject waterTransform;
+
     // Use this for initialization
     void Start () {
         ani = GetComponent<Animator>();
         rig = GetComponent<Rigidbody>();
+
+        waterTransform = GameObject.FindGameObjectsWithTag("Water")[0];
 
     }
     public float speed = 50;
@@ -56,6 +60,11 @@ public class PlayerScript : MonoBehaviour {
         ani.SetBool("isMoving", isMoving);
         
         rig.MoveRotation(transform.rotation = Quaternion.RotateTowards(rig.rotation, targetRotation, speed * Time.deltaTime));
+
+        if (this.transform.position.y > waterTransform.transform.position.y)
+        {
+            rig.AddForce(Vector3.down * 20);
+        }
     }
 
     void __uMMO_localPlayer_init()

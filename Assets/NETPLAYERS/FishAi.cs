@@ -14,6 +14,8 @@ public class FishAi : MonoBehaviour {
 
     Transform Owner;
 
+    public Transform waterTransform;
+
     // Use this for initialization
     void Start () {
         thisAnimator = GetComponent<Animator>();
