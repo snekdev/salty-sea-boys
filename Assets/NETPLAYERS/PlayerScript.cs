@@ -13,6 +13,8 @@ public class PlayerScript : MonoBehaviour {
 
     GameObject waterTransform;
 
+
+
     // Use this for initialization
     void Start () {
         ani = GetComponent<Animator>();
@@ -83,5 +85,21 @@ public class PlayerScript : MonoBehaviour {
         }
 
         Camera.main.GetComponent<ThirdPersonCamera.CameraController>().target = this.transform;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        //Destroy(other.gameObject);
+        if (other.gameObject.tag == "Fish")
+        {
+            //Owner = other.transform;
+
+            var main = other.GetComponent<ParticleSystem>().emission;
+            //Set the particle size.
+            var isemitting = main.enabled;
+            isemitting = true;
+            main.enabled = isemitting;
+            Camera.main.GetComponent<ThirdPersonCamera.CameraController>().target = this.transform;
+        }
     }
 }

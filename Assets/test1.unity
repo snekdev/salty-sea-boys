@@ -1739,7 +1739,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -172510712
+  randomSeed: -1499487469
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -1886,7 +1886,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
     startSize:
       minMaxState: 0
-      scalar: 0.7
+      scalar: 1.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2269,7 +2269,7 @@ ParticleSystem:
     randomDirectionAmount: 0
     sphericalDirectionAmount: 0
   EmissionModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 4
     rateOverTime:
       minMaxState: 0
@@ -6596,6 +6596,10 @@ Prefab:
         type: 2}
       propertyPath: particleSystemz
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1312502913548630, guid: 091a9a9b55dd42647abfc7e10ae47095, type: 2}
+      propertyPath: m_TagString
+      value: Fish
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 135241425415139090, guid: 091a9a9b55dd42647abfc7e10ae47095, type: 2}

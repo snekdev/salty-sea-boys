@@ -6,6 +6,7 @@ TagManager:
   tags:
   - SpawnPoint
   - Water
+  - Fish
   layers:
   - Default
   - TransparentFX

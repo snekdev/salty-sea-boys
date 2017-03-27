@@ -17,7 +17,7 @@ public class FishAi : MonoBehaviour {
 
     GameObject waterTransform;
 
-    public ParticleSystem particleSystemz;
+    //public ParticleSystem particleSystemz;
 
     // Use this for initialization
     void Start () {
@@ -32,7 +32,7 @@ public class FishAi : MonoBehaviour {
 
         waterTransform = GameObject.FindGameObjectsWithTag("Water")[0];
 
-        particleSystemz = GetComponent<ParticleSystem>();
+        //particleSystemz = GetComponent<ParticleSystem>();
 
     }
     float speed = 50;
@@ -131,11 +131,11 @@ public class FishAi : MonoBehaviour {
         //thisAnimator.SetBool("IsMoving", true);
         Debug.Log("init here");
 
-        var main = particleSystemz.emission;
-        //Set the particle size.
-        var isemitting = main.enabled;
-        isemitting = false;
-        main.enabled = isemitting;
+        //var main = particleSystemz.emission;
+        ////Set the particle size.
+        //var isemitting = main.enabled;
+        //isemitting = false;
+        //main.enabled = isemitting;
         //Camera.main.GetComponent<ThirdPersonCamera.CameraController>().target = this.transform;
     }
     void OnTriggerEnter(Collider other)
