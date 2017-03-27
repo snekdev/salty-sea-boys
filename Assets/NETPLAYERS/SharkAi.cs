@@ -18,12 +18,15 @@ public class SharkAi : MonoBehaviour {
     Vector3 Direction = Vector3.zero;
     float speed = 50;
 
+    GameObject waterTransform;
+
     // Use this for initialization
     void Start () {
         thisRigid = GetComponent<Rigidbody>();
         //targetPosition.position = new Vector3(10, 0, 0);
 
 
+        waterTransform = GameObject.FindGameObjectsWithTag("Water")[0];
     }
     float moveSpeed = 0.1f;
 	// Update is called once per frame
@@ -94,10 +97,13 @@ public class SharkAi : MonoBehaviour {
                 thisRigid.MoveRotation(transform.rotation = Quaternion.RotateTowards(thisRigid.rotation, targetRotation, speed * Time.deltaTime));
             }
         }
-       
 
 
-	}
+        if (this.transform.position.y > waterTransform.transform.position.y)
+        {
+            thisRigid.AddForce(Vector3.down * 20);
+        }
+    }
     
 
     void PathToNextNode()

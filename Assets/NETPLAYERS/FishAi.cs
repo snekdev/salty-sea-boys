@@ -14,7 +14,8 @@ public class FishAi : MonoBehaviour {
 
     Transform Owner;
 
-    public Transform waterTransform;
+    GameObject waterTransform;
+
 
     // Use this for initialization
     void Start () {
@@ -27,7 +28,7 @@ public class FishAi : MonoBehaviour {
         targetRotation *= Quaternion.Euler(0, -90, 0);
         thisRigid.AddForce(Direction);
 
-
+        waterTransform = GameObject.FindGameObjectsWithTag("Water")[0];
 
     }
     float speed = 50;
@@ -69,6 +70,11 @@ public class FishAi : MonoBehaviour {
             targetRotation = Quaternion.LookRotation(Direction.normalized);
             targetRotation *= Quaternion.Euler(0, -90, 0);
             thisRigid.AddForce(Direction);
+        }
+
+        if (this.transform.position.y > waterTransform.transform.position.y)
+        {
+            thisRigid.AddForce(Vector3.down * 20);
         }
     }
     void __uMMO_serverNPO_init()
