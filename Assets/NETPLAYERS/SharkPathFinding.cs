@@ -15,6 +15,8 @@ public class SharkPathFinding : MonoBehaviour {
 		
 	}
     SharkPathNode currentNode;
+    SharkPathNode lastNode;
+
     public Transform FindNewOptimalPath(Vector3 startLocation)
     {
 
@@ -42,34 +44,52 @@ public class SharkPathFinding : MonoBehaviour {
         //}
 
         //roll the dice 10 times to try and minimise the odds of back tracking without making it impossible
-        for (int i = 0; i < 10; i++)
-        {
-            int randomDirection = Random.Range(0, currentNode.ThisNodesOptions.Count);
-            SharkPathNode testNode = startPos.ThisNodesOptions[randomDirection];
-            //if (currentNode != testNode)
-            //{
-            //    currentNode = testNode;
-            //    break;
-            //}
+        //for (int i = 0; i < 10; i++)
+        //{
+        //    int randomDirection = Random.Range(0, currentNode.ThisNodesOptions.Count);
+        //    SharkPathNode testNode = startPos.ThisNodesOptions[randomDirection];
+        //    //if (currentNode != testNode)
+        //    //{
+        //    //    currentNode = testNode;
+        //    //    break;
+        //    //}
 
-            Vector3 directionToTarget = testNode.transform.position - currentNode.transform.position;
-            float dSqrToTarget = directionToTarget.sqrMagnitude;
-            float closestDistanceSqr = Mathf.Infinity;
-            //if (dSqrToTarget < closestDistanceSqr)
-            if (dSqrToTarget > 15)
-            {
-                currentNode = testNode;
-                break;
-            }
+        //    Vector3 directionToTarget = testNode.transform.position - currentNode.transform.position;
+        //    float dSqrToTarget = directionToTarget.sqrMagnitude;
+        //    float closestDistanceSqr = Mathf.Infinity;
+        //    if (dSqrToTarget < closestDistanceSqr)
+        //    {
+        //        currentNode = testNode;
+        //        break;
+        //    }
 
 
-        }
-
+        //}
 
 
 
-        //return currentNode.ThisNodesOptions[randomDirection].transform;
-        return currentNode.transform;
+
+        //find out which one to avoid next time
+        //int randomDirection = Random.Range(0, currentNode.ThisNodesOptions.Count);
+        //int closestNumber = 0;
+        //float closestDistanceSqr = Mathf.Infinity;
+        //for (int i = 0; i < currentNode.ThisNodesOptions.Count; i++)
+        //{
+        //    Vector3 directionToTarget = currentNode.ThisNodesOptions[i].transform.position - currentNode.transform.position;
+        //    float dSqrToTarget = directionToTarget.sqrMagnitude;
+        //    if (dSqrToTarget < closestDistanceSqr)
+        //    {
+        //        closestDistanceSqr = dSqrToTarget;
+        //        closestNumber = i;
+        //    }
+        //}
+
+        //lastNode = findLastNode(currentNode.transform.position);
+
+
+        int randomDirection = Random.Range(0, currentNode.ThisNodesOptions.Count);
+        return currentNode.ThisNodesOptions[randomDirection].transform;
+        //return currentNode.transform;
 
     }
     private bool checktoseeifthislistarrives(SharkPathNode thisNode)
@@ -101,6 +121,25 @@ public class SharkPathFinding : MonoBehaviour {
         SharkPathNode bestTarget = null;
         float closestDistanceSqr = Mathf.Infinity;
         Vector3 currentPosition = endLocation;
+        foreach (Transform potentialTarget in transform)
+        {
+            Vector3 directionToTarget = potentialTarget.position - currentPosition;
+            float dSqrToTarget = directionToTarget.sqrMagnitude;
+            if (dSqrToTarget < closestDistanceSqr)
+            {
+                closestDistanceSqr = dSqrToTarget;
+                bestTarget = potentialTarget.GetComponent<SharkPathNode>(); ;
+            }
+        }
+
+        return bestTarget;
+    }
+
+    SharkPathNode findLastNode(Vector3 currentLocation)
+    {
+        SharkPathNode bestTarget = null;
+        float closestDistanceSqr = Mathf.Infinity;
+        Vector3 currentPosition = currentLocation;
         foreach (Transform potentialTarget in transform)
         {
             Vector3 directionToTarget = potentialTarget.position - currentPosition;
