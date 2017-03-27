@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33748953340159620}
   - component: {fileID: 23039522357969228}
   m_Layer: 0
-  m_Name: coral1
+  m_Name: coral2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,7 +54,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 861139cd9effc604ebdd218b616d12c1, type: 2}
+  - {fileID: 2100000, guid: cec1ccccdd9a41d4a878ea71c65fff51, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
