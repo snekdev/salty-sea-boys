@@ -14,12 +14,14 @@ public class SharkPathFinding : MonoBehaviour {
 	void Update () {
 		
 	}
-    
-    public Transform FindNewOptimalPath(Vector3 startLocation, Vector3 endLocation)
+    SharkPathNode currentNode;
+    public Transform FindNewOptimalPath(Vector3 startLocation)
     {
 
         SharkPathNode startPos = findStartingNode(startLocation);
-        SharkPathNode endPos = findStartingNode(endLocation);
+        //SharkPathNode endPos = findStartingNode(endLocation);
+
+        currentNode = startPos;
 
         //for each option
         //foreach (SharkPathNode item in startPos.ThisNodesOptions)
@@ -29,19 +31,46 @@ public class SharkPathFinding : MonoBehaviour {
         //    itemOptionListnew.Add(item);
         //    //myListOfPossiblePaths.Add()
         //}
-        bool hasItBeenSolved = false;
-        while (hasItBeenSolved == false)
+        //bool hasItBeenSolved = false;
+        //while (hasItBeenSolved == false)
+        //{
+        //    //populate list
+        //    foreach (var item in currentNode.ThisNodesOptions)
+        //    {
+        //        //myListOfPossiblePaths
+        //    }
+        //}
+
+        //roll the dice 10 times to try and minimise the odds of back tracking without making it impossible
+        for (int i = 0; i < 10; i++)
         {
+            int randomDirection = Random.Range(0, currentNode.ThisNodesOptions.Count);
+            SharkPathNode testNode = startPos.ThisNodesOptions[randomDirection];
+            //if (currentNode != testNode)
+            //{
+            //    currentNode = testNode;
+            //    break;
+            //}
+
+            Vector3 directionToTarget = testNode.transform.position - currentNode.transform.position;
+            float dSqrToTarget = directionToTarget.sqrMagnitude;
+            float closestDistanceSqr = Mathf.Infinity;
+            //if (dSqrToTarget < closestDistanceSqr)
+            if (dSqrToTarget > 15)
+            {
+                currentNode = testNode;
+                break;
+            }
+
 
         }
 
 
-        return endPos.transform;
 
-    }
-    private void populateNextList(SharkPathNode thisNode)
-    {
-        List<List<SharkPathNode>> newLists = new List<List<SharkPathNode>>();
+
+        //return currentNode.ThisNodesOptions[randomDirection].transform;
+        return currentNode.transform;
+
     }
     private bool checktoseeifthislistarrives(SharkPathNode thisNode)
     {
