@@ -48,13 +48,31 @@ public class SharkAi : MonoBehaviour {
         {
             targetPosition.position = sharkEyes.LastSeenAt;
 
-            Direction = targetPosition.position - transform.position;
+            float distanceToTargetLastKnownPosition = Vector3.Distance(transform.position, targetPosition.position);
+            if (distanceToTargetLastKnownPosition < 5)
+            {
+                targetRotation.eulerAngles = new Vector3(this.transform.eulerAngles.x + (Mathf.Sin(Time.deltaTime) * 50), this.transform.eulerAngles.y, this.transform.eulerAngles.z + (Mathf.Sin(Time.deltaTime) * 50));
 
-            targetRotation = Quaternion.LookRotation(Direction.normalized);
-            targetRotation *= Quaternion.Euler(0, -90, 0);
+                //thisRigid.AddForce(Direction * moveSpeed * 1.5f);
+                thisRigid.MoveRotation(transform.rotation = Quaternion.RotateTowards(thisRigid.rotation, targetRotation, speed * Time.deltaTime));
+            }
+            else
+            {
+                //move to player or last know position
+                //should probably raycast to look for them more accurately once identified
+                Direction = targetPosition.position - transform.position;
 
-            thisRigid.AddForce(Direction * moveSpeed * 1.5f);
-            thisRigid.MoveRotation(transform.rotation = Quaternion.RotateTowards(thisRigid.rotation, targetRotation, speed * Time.deltaTime));
+
+
+                targetRotation = Quaternion.LookRotation(Direction.normalized);
+                targetRotation *= Quaternion.Euler(0, -90, 0);
+
+                thisRigid.AddForce(Direction * moveSpeed * 1.5f);
+                thisRigid.MoveRotation(transform.rotation = Quaternion.RotateTowards(thisRigid.rotation, targetRotation, speed * Time.deltaTime));
+            }
+
+
+
         }
         else
         {
