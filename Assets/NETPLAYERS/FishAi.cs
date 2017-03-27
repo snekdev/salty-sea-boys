@@ -16,6 +16,7 @@ public class FishAi : MonoBehaviour {
 
     GameObject waterTransform;
 
+    ParticleSystem particleSystem;
 
     // Use this for initialization
     void Start () {
@@ -30,6 +31,8 @@ public class FishAi : MonoBehaviour {
 
         waterTransform = GameObject.FindGameObjectsWithTag("Water")[0];
 
+        particleSystem = GetComponent<ParticleSystem>();
+
     }
     float speed = 50;
     // Update is called once per frame
@@ -37,6 +40,7 @@ public class FishAi : MonoBehaviour {
 
         if (Owner == null)
         {
+            particleSystem.Stop();
             Timer += Time.deltaTime;
             //thisAnimator.SetBool("IsMoving", true);
             if (Timer >= MaxTimer)
@@ -65,6 +69,7 @@ public class FishAi : MonoBehaviour {
         }
         else
         {
+            particleSystem.Play();
             Direction = Owner.position - this.transform.position;
 
             targetRotation = Quaternion.LookRotation(Direction.normalized);

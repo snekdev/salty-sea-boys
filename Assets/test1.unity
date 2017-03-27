@@ -1739,7 +1739,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 459521415
+  randomSeed: 1388509054
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -6587,7 +6587,8 @@ Prefab:
       propertyPath: m_Name
       value: FISH
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 135241425415139090, guid: 091a9a9b55dd42647abfc7e10ae47095, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 091a9a9b55dd42647abfc7e10ae47095, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1403505144 stripped
