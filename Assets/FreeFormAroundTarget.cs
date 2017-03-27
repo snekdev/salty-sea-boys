@@ -141,7 +141,8 @@ namespace ThirdPersonCamera
 
                 Vector3 offsetVectorTransformed = cameraController.target.transform.rotation * cameraController.offsetVector;
 
-                transform.RotateAround(cameraController.target.position + offsetVectorTransformed, cameraController.target.up, x);
+           //     transform.RotateAround(cameraController.target.position + offsetVectorTransformed, cameraController.target.up, x);
+                transform.RotateAround(cameraController.target.position + offsetVectorTransformed, Vector3.up, x);
 
                 yAngle = -y;
                 // Prevent camera flipping
