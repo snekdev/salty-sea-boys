@@ -1738,8 +1738,8 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 1
-  randomSeed: 1388509054
+  scalingMode: 2
+  randomSeed: -172510712
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -1784,7 +1784,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSpeed:
       minMaxState: 0
-      scalar: 0.1
+      scalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1886,7 +1886,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
     startSize:
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0.7
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -6553,7 +6553,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4200537734534082, guid: 091a9a9b55dd42647abfc7e10ae47095, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -7.76
+      value: -24.77
       objectReference: {fileID: 0}
     - target: {fileID: 4200537734534082, guid: 091a9a9b55dd42647abfc7e10ae47095, type: 2}
       propertyPath: m_LocalPosition.y
@@ -6586,6 +6586,16 @@ Prefab:
     - target: {fileID: 1312502913548630, guid: 091a9a9b55dd42647abfc7e10ae47095, type: 2}
       propertyPath: m_Name
       value: FISH
+      objectReference: {fileID: 0}
+    - target: {fileID: 114279965981645034, guid: 091a9a9b55dd42647abfc7e10ae47095,
+        type: 2}
+      propertyPath: particleSystem
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114279965981645034, guid: 091a9a9b55dd42647abfc7e10ae47095,
+        type: 2}
+      propertyPath: particleSystemz
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 135241425415139090, guid: 091a9a9b55dd42647abfc7e10ae47095, type: 2}

@@ -13,10 +13,11 @@ public class FishAi : MonoBehaviour {
     Quaternion targetRotation;
 
     Transform Owner;
+    Transform falseFlag;
 
     GameObject waterTransform;
 
-    ParticleSystem particleSystem;
+    public ParticleSystem particleSystemz;
 
     // Use this for initialization
     void Start () {
@@ -31,16 +32,33 @@ public class FishAi : MonoBehaviour {
 
         waterTransform = GameObject.FindGameObjectsWithTag("Water")[0];
 
-        particleSystem = GetComponent<ParticleSystem>();
+        particleSystemz = GetComponent<ParticleSystem>();
 
     }
     float speed = 50;
     // Update is called once per frame
     void Update () {
+        //ParticleSystem.EmissionModule em = particleSystem.emission;
+        //em.enabled = false;
+
+        //var main = particleSystemz.main;
+        ////Set the particle size.
+        //var startSize = main.startSize;
+        //startSize = 0.0f;
+        //main.startSize = startSize;
+
+
 
         if (Owner == null)
         {
-            particleSystem.Stop();
+
+
+            //particleSystem.transform.gameObject.SetActive(false);
+            //particleSystem.time = 0;
+
+            //particleSystem.emissionRate = 0;
+            //particleSystem.emission.rateOverTime = 0;
+
             Timer += Time.deltaTime;
             //thisAnimator.SetBool("IsMoving", true);
             if (Timer >= MaxTimer)
@@ -69,12 +87,37 @@ public class FishAi : MonoBehaviour {
         }
         else
         {
-            particleSystem.Play();
-            Direction = Owner.position - this.transform.position;
 
-            targetRotation = Quaternion.LookRotation(Direction.normalized);
-            targetRotation *= Quaternion.Euler(0, -90, 0);
-            thisRigid.AddForce(Direction);
+            //particleSystem.emission.enabled = true;
+            //ParticleSystem.EmissionModule em = particleSystem.emission;
+            //em.enabled = true;
+            //particleSystem.emission = em;
+
+            //particleSystem.emission.enabled = true;
+
+            //particleSystem.transform.gameObject.SetActive(true);
+
+            float distance = Vector3.Distance(Owner.position, this.transform.position);
+            if (distance < 50)
+            {
+                Direction = Owner.position - this.transform.position;
+
+                targetRotation = Quaternion.LookRotation(Direction.normalized);
+                targetRotation *= Quaternion.Euler(0, -90, 0);
+                thisRigid.AddForce(Direction);
+
+
+                //var main = particleSystemz.emission;
+                ////Set the particle size.
+                //var isemitting = main.enabled;
+                //isemitting = true;
+                //main.enabled = isemitting;
+            }
+            else
+            {
+                Owner = falseFlag;
+            }
+
         }
 
         if (this.transform.position.y > waterTransform.transform.position.y)
@@ -87,6 +130,12 @@ public class FishAi : MonoBehaviour {
         Owner = null;
         //thisAnimator.SetBool("IsMoving", true);
         Debug.Log("init here");
+
+        var main = particleSystemz.emission;
+        //Set the particle size.
+        var isemitting = main.enabled;
+        isemitting = false;
+        main.enabled = isemitting;
         //Camera.main.GetComponent<ThirdPersonCamera.CameraController>().target = this.transform;
     }
     void OnTriggerEnter(Collider other)
