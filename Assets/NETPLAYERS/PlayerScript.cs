@@ -13,10 +13,12 @@ public class PlayerScript : MonoBehaviour {
 
     GameObject waterTransform;
 
+    public int PLAYERHEALTH;
 
 
     // Use this for initialization
     void Start () {
+        PLAYERHEALTH = 1000;
         ani = GetComponent<Animator>();
         rig = GetComponent<Rigidbody>();
 
