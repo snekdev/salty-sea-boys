@@ -41,4 +41,14 @@ public class crabAI : MonoBehaviour {
         }
         thisRigid.AddForce(Vector3.down * 20);
     }
+    void __uMMO_serverNPO_init()
+    {
+
+        //var main = particleSystemz.emission;
+        ////Set the particle size.
+        //var isemitting = main.enabled;
+        //isemitting = false;
+        //main.enabled = isemitting;
+        //Camera.main.GetComponent<ThirdPersonCamera.CameraController>().target = this.transform;
+    }
 }
