@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33748953340159620}
   - component: {fileID: 23039522357969228}
   m_Layer: 0
-  m_Name: kelp 1
+  m_Name: coral1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

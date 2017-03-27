@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CoralSpawner : MonoBehaviour {
 
+    public List<GameObject> coralPrefabs;
+    public int numberPerSpecies;
 	// Use this for initialization
 	void Start () {
 		
