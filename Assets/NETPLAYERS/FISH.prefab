@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 114962802398239172}
   - component: {fileID: 114039836671144294}
   - component: {fileID: 114279965981645034}
+  - component: {fileID: 135241425415139090}
   m_Layer: 8
   m_Name: FISH
   m_TagString: Untagged
@@ -676,6 +677,18 @@ MonoBehaviour:
     containsInput: 0
   mecanimVarsToSync: 00000000
   inputStates: []
+--- !u!135 &135241425415139090
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1312502913548630}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &135875936338440956
 SphereCollider:
   m_ObjectHideFlags: 1
