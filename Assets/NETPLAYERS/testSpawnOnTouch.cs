@@ -5,30 +5,31 @@ using UnityEngine.Networking;
 
 public class testSpawnOnTouch : NetworkBehaviour
 {
-    GameObject FishSpawner;
+    //GameObject FishSpawner;
     GameObject ParentPlayer;
     PlayerScript myPlayerScript;
 
     // Use this for initialization
     void Start () {
-        FishSpawner = GameObject.FindGameObjectWithTag("FishManager");
+        //FishSpawner = GameObject.FindGameObjectWithTag("FishManager");
         ParentPlayer = transform.parent.gameObject;
         myPlayerScript = ParentPlayer.GetComponent<PlayerScript>();
             }
 	
 	// Update is called once per frame
 	void Update () {
-        if (myPlayerScript.gestation >= 5)
-        {
+        //if (myPlayerScript.gestation >= 100)
+        //{
             //myPlayerScript.gestation = 0;
-            FishSpawner.GetComponent<FishSpawnerNetwork>().ProduceChild = true;
-            FishSpawner.GetComponent<FishSpawnerNetwork>().VaginaLocation = this.transform.position;
+            //FishSpawner.GetComponent<FishSpawnerNetwork>().ProduceChild = true;
+            //FishSpawner.GetComponent<FishSpawnerNetwork>().VaginaLocation = this.transform.position;
 
-        }
+        //}
     }
     void OnTriggerEnter(Collider other)
     {
         //Destroy(other.gameObject);
+
 
     }
 }

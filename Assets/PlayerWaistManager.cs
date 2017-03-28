@@ -30,7 +30,7 @@ public class PlayerWaistManager : NetworkBehaviour
         }
         myMesh.text = currentHealth.ToString();
     }
-
+    List<PlayerController> myPlayer = new List<PlayerController>();
     void ServerStuff()
     {
         if (NetMngr.numPlayers != connectedPlayers)
@@ -38,6 +38,7 @@ public class PlayerWaistManager : NetworkBehaviour
             if (NetMngr.numPlayers > connectedPlayers)
             {
                 GameObject tempHolder = Instantiate(myPrefab, Vector3.zero,Quaternion.identity) as GameObject;
+                
                 NetworkServer.Spawn(tempHolder);
             }
             else
@@ -48,6 +49,12 @@ public class PlayerWaistManager : NetworkBehaviour
         }
 
         currentHealth -= Time.deltaTime * 0.01f;
+
+        GameObject[] myBlendShapes = GameObject.FindGameObjectsWithTag("BlendShapeTag");
+        foreach (var item in myBlendShapes)
+        {
+            item.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(0, currentHealth);
+        }
 
 
     }
