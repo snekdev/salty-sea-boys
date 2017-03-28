@@ -12,6 +12,12 @@ public class FogColorChange : MonoBehaviour {
     public float deepStrength;
     public float surfaceStrength;
 
+   // public float deepTintStrength;
+   // public float surfaceTintStrength;
+
+
+    public SnekShaders.PP_Generic tint;
+
     // Use this for initialization
     void Start () {
 		
@@ -21,5 +27,8 @@ public class FogColorChange : MonoBehaviour {
 	void Update () {
         RenderSettings.fogColor = Color.Lerp(deepColor, surfaceColor, (transform.position.y - deepY) / (surfaceY - deepY));
         RenderSettings.fogDensity = Mathf.Lerp(deepStrength, surfaceStrength, (transform.position.y - deepY) / (surfaceY - deepY));
+
+       // tint.colorPairs.Find(x => x.name == "_Color").data = Color.Lerp(deepColor, surfaceColor, (transform.position.y - deepY) / (surfaceY - deepY));
+      //  tint.floatPairs.Find(x => x.name == "_Strength").data = Mathf.Lerp(deepTintStrength, surfaceTintStrength, (transform.position.y - deepY) / (surfaceY - deepY));
     }
 }

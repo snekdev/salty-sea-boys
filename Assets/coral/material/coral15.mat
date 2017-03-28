@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: coral14
-  m_Shader: {fileID: 4800000, guid: 10ab5b7cd5dfaed43b1f776e9f329003, type: 3}
+  m_Name: coral15
+  m_Shader: {fileID: 4800000, guid: cea6905f02369fa449c7bfea78af1d42, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0

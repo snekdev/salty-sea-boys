@@ -9,13 +9,15 @@ public class CoralSpawner : MonoBehaviour {
     public Material coralMaterial;
     public GameObject temp;
 
+    Transform waterTransform;
     public List<GameObject> coralPrefabs;
     public int numberPerSpecies;
 	// Use this for initialization
 	void Start () {
         //   AddCoral();
         StartCoroutine(CoverWithCoral());
-
+        if (GameObject.FindGameObjectsWithTag("Water").Length > 0)
+            waterTransform = GameObject.FindGameObjectsWithTag("Water")[0].transform;
     }
 
     public IEnumerator CoverWithCoral()
@@ -47,6 +49,7 @@ public class CoralSpawner : MonoBehaviour {
                 temp = new GameObject("temp");
 
             Mesh currentMesh = rock.GetComponent<MeshFilter>().mesh;
+            Mesh emptyMesh = new Mesh();
             Mesh coralMesh = coralPrefab.GetComponent<MeshFilter>().sharedMesh;
             Material material = coralPrefab.GetComponent<MeshRenderer>().sharedMaterial;
 
@@ -83,8 +86,12 @@ public class CoralSpawner : MonoBehaviour {
                     Vector3 point = (1 - Mathf.Sqrt(r1)) * p1 + (Mathf.Sqrt(r1) * (1 - r2)) * p2 + (Mathf.Sqrt(r1) * r2) * p3;
                     temp.transform.position =rock.transform.TransformPoint(point);
                 }
+
                 temp.transform.rotation = Quaternion.Euler(Random.Range(0, 1f), Random.Range(0, 1f), Random.Range(0, 1f));
-                combine[i].mesh = coralMesh;
+                if (waterTransform != null && temp.transform.position.y > waterTransform.position.y)
+                    combine[i].mesh = emptyMesh;
+                else
+                    combine[i].mesh = coralMesh;
                 combine[i].transform = temp.transform.localToWorldMatrix;
             }
 

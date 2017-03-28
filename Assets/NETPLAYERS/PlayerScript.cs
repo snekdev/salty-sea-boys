@@ -11,9 +11,13 @@ public class PlayerScript : MonoBehaviour {
     float MaxTimer = 1;
     bool isMoving = false;
 
+    public SkinnedMeshRenderer sk;
+
     GameObject waterTransform;
 
     public int PLAYERHEALTH;
+    public float gravity = 20;
+    public float moveForce = 15;
 
     GameObject myTextMesh;
 
@@ -24,9 +28,10 @@ public class PlayerScript : MonoBehaviour {
         ani = GetComponent<Animator>();
         rig = GetComponent<Rigidbody>();
 
-        waterTransform = GameObject.FindGameObjectsWithTag("Water")[0];
-
-        myTextMesh = GameObject.FindGameObjectsWithTag("HUDText")[0];
+        if (GameObject.FindGameObjectsWithTag("Water").Length > 0)
+            waterTransform = GameObject.FindGameObjectsWithTag("Water")[0];
+        if (GameObject.FindGameObjectsWithTag("HUDText").Length > 0)
+            myTextMesh = GameObject.FindGameObjectsWithTag("HUDText")[0];
 
     }
     public float speed = 50;
@@ -38,12 +43,15 @@ public class PlayerScript : MonoBehaviour {
         {
             Timer = 0;
             isMoving = true;
-            //ani.SetBool("IsMoving", true);
-            Vector3 direction = Camera.main.transform.forward * 15;
+            Vector3 direction = Camera.main.transform.forward;
 
-            targetRotation = Quaternion.LookRotation(direction.normalized);
-           // targetRotation *= Quaternion.Euler(90, 0, 0);
-            rig.AddForce(direction);
+            targetRotation = Quaternion.LookRotation(direction);
+            if (waterTransform == null ||(  waterTransform != null && transform.position.y < waterTransform.transform.position.y))
+            {
+                rig.AddForce(direction * moveForce);
+            }
+            
+           
         }
         if (Timer < MaxTimer)
         {
@@ -55,18 +63,25 @@ public class PlayerScript : MonoBehaviour {
         }
 
         ani.SetBool("isMoving", isMoving);
-    //    transform.rotation = Quaternion.RotateTowards(rig.rotation, targetRotation, speed * Time.deltaTime);
 
-        rig.MoveRotation(Quaternion.RotateTowards(rig.rotation, targetRotation, speed * Time.deltaTime));
+        if (isMoving)
+            rig.MoveRotation(Quaternion.RotateTowards(rig.rotation, targetRotation, speed * Time.deltaTime));
+        else
+            rig.MoveRotation(Quaternion.RotateTowards(rig.rotation, Quaternion.Euler(new Vector3(-67,0,0)), .3f * speed * Time.deltaTime));
 
-      //  rig.MoveRotation(transform.rotation = Quaternion.RotateTowards(rig.rotation, targetRotation, speed * Time.deltaTime));
 
-        if (this.transform.position.y > waterTransform.transform.position.y)
+        if (waterTransform != null && transform.position.y > waterTransform.transform.position.y)
         {
-            rig.AddForce(Vector3.down * 20);
+            rig.AddForce(Vector3.down * gravity);
         }
 
-        myTextMesh.GetComponent<TextMesh>().text = PLAYERHEALTH.ToString();
+        if (myTextMesh != null)
+            myTextMesh.GetComponent<TextMesh>().text = PLAYERHEALTH.ToString();
+
+        if (sk != null)
+        {
+            sk.SetBlendShapeWeight(0, 50 + 50 * Mathf.Sin(Time.time));
+        }
     }
 
     void __uMMO_localPlayer_init()
@@ -84,7 +99,7 @@ public class PlayerScript : MonoBehaviour {
           
         }
 
-        Camera.main.GetComponent<ThirdPersonCamera.CameraController>().target = this.transform;
+        Camera.main.GetComponent<ThirdPersonCamera.CameraController>().Target = this.transform;
     }
 
     void OnTriggerEnter(Collider other)
@@ -99,7 +114,7 @@ public class PlayerScript : MonoBehaviour {
             var isemitting = main.enabled;
             isemitting = true;
             main.enabled = isemitting;
-            Camera.main.GetComponent<ThirdPersonCamera.CameraController>().target = this.transform;
+            Camera.main.GetComponent<ThirdPersonCamera.CameraController>().Target = this.transform;
         }
     }
 }

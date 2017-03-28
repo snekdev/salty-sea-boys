@@ -17,7 +17,8 @@ namespace ThirdPersonCamera
     public class CameraController : MonoBehaviour
     {
         #region Public Unity Variables
-        public Transform target;
+        [SerializeField]
+        private Transform target;
         public Vector3 offsetVector;
 
         public bool smartPivot = true;
@@ -25,6 +26,7 @@ namespace ThirdPersonCamera
         public bool thicknessCheck = true;
 
         public float desiredDistance = 5.0f;
+        public float minimumDistance = 2.0f;
         public float collisionDistance = 0.5f;
         public float maxThickness = 0.3f;
         public int maxThicknessIterations = 5;
@@ -81,13 +83,32 @@ namespace ThirdPersonCamera
             }
         }
 
+        public Transform Target
+        {
+            get
+            {
+               
+
+                return target;
+            }
+
+            set
+            {
+                if (target == null || target != value)
+                {
+                    target = value;
+                    Initialize();
+                }
+            }
+        }
+
         #endregion
 
-        void Awake()
+        private void Initialize()
         {
             initDone = false;
 
-            if (target == null)
+            if (Target == null)
             {
                 Debug.LogError("Please set a transform to 'Target'!");
                 return;
@@ -99,16 +120,45 @@ namespace ThirdPersonCamera
 
             playerCollision = false;
 
-            prevTargetPos = target.position;
+            prevTargetPos = Target.position;
             prevPosition = transform.position;
 
-            smrs = target.GetComponentsInChildren<SkinnedMeshRenderer>();
+            smrs = Target.GetComponentsInChildren<SkinnedMeshRenderer>();
 
             currentIterations = 0;
             thicknessStarts = new Dictionary<string, RaycastHit>();
             thicknessEnds = new Dictionary<string, RaycastHit>();
 
             initDone = true;
+        }
+
+        void Awake()
+        {
+            Initialize();
+            //initDone = false;
+
+            //if (Target == null)
+            //{
+            //    Debug.LogError("Please set a transform to 'Target'!");
+            //    return;
+            //}
+
+            //distance = desiredDistance;
+
+            //cameraNormalMode = true;
+
+            //playerCollision = false;
+
+            //prevTargetPos = Target.position;
+            //prevPosition = transform.position;
+
+            //smrs = Target.GetComponentsInChildren<SkinnedMeshRenderer>();
+
+            //currentIterations = 0;
+            //thicknessStarts = new Dictionary<string, RaycastHit>();
+            //thicknessEnds = new Dictionary<string, RaycastHit>();
+
+            //initDone = true;
         }
 
         void Update()
@@ -150,20 +200,20 @@ namespace ThirdPersonCamera
                 }
             }
 
-            Vector3 offsetVectorTransformed = target.transform.rotation * offsetVector;
-            transform.position += (target.position - prevTargetPos);
-            targetPosWithOffset = (target.position + offsetVectorTransformed);
+            Vector3 offsetVectorTransformed = Target.transform.rotation * offsetVector;
+            transform.position += (Target.position - prevTargetPos);
+            targetPosWithOffset = (Target.position + offsetVectorTransformed);
 
-            Vector3 dirToTargetOffset = targetPosWithOffset - target.position;
+            Vector3 dirToTargetOffset = targetPosWithOffset - Target.position;
 
-            if (Physics.SphereCast(target.position, collisionDistance, dirToTargetOffset, out offsetTest, dirToTargetOffset.magnitude + collisionDistance, collisionLayer))
+            if (Physics.SphereCast(Target.position, collisionDistance, dirToTargetOffset, out offsetTest, dirToTargetOffset.magnitude + collisionDistance, collisionLayer))
             {
                 // offset clips into geometry, move the offset
                 float newDistance = offsetTest.distance - collisionDistance - 0.1f;
-                targetPosWithOffset = (target.position + offsetVectorTransformed.normalized * newDistance);
+                targetPosWithOffset = (Target.position + offsetVectorTransformed.normalized * newDistance);
             }
 
-            dirToTarget = (transform.rotation * new Vector3(0, 0, -distance) + offsetVectorTransformed + target.position) - targetPosWithOffset;
+            dirToTarget = (transform.rotation * new Vector3(0, 0, -distance) + offsetVectorTransformed + Target.position) - targetPosWithOffset;
             float cameraToPlayerDistance = Mathf.Min(dirToTarget.magnitude, desiredDistance);            
             dirToTarget = dirToTarget.normalized;
 
@@ -293,16 +343,16 @@ namespace ThirdPersonCamera
                 {
                     if (thickness > maxThickness)
                     {
-                        distance = Mathf.Clamp(occlusionHit.Value.distance, 0, desiredDistance);                       
+                        distance = Mathf.Clamp(occlusionHit.Value.distance, minimumDistance, desiredDistance);                       
                         transform.position = occlusionHit.Value.point + occlusionHit.Value.normal.normalized * collisionDistance;
                     }
                     else
-                        transform.position = transform.rotation * new Vector3(0, 0, -distance) + offsetVectorTransformed + target.position;
+                        transform.position = transform.rotation * new Vector3(0, 0, -distance) + offsetVectorTransformed + Target.position;
                 }
             }
             else if (cameraNormalMode)
             {
-                transform.position = transform.rotation * new Vector3(0, 0, -distance) + offsetVectorTransformed + target.position;
+                transform.position = transform.rotation * new Vector3(0, 0, -distance) + offsetVectorTransformed + Target.position;
             }
 
             
@@ -313,7 +363,7 @@ namespace ThirdPersonCamera
                 Vector3 tmpEuler = transform.rotation.eulerAngles;
                 tmpEuler.x = startingY;
 
-                dirToTargetSmartPivot = (Quaternion.Euler(tmpEuler) * new Vector3(0, 0, -distance) + offsetVectorTransformed + target.position) - targetPosWithOffset;
+                dirToTargetSmartPivot = (Quaternion.Euler(tmpEuler) * new Vector3(0, 0, -distance) + offsetVectorTransformed + Target.position) - targetPosWithOffset;
                
                 if (Physics.SphereCast(targetPosWithOffset, collisionDistance, dirToTargetSmartPivot.normalized, out hitSmartPivot, dirToTargetSmartPivot.magnitude + collisionDistance, collisionLayer))
                 {                   
@@ -350,7 +400,7 @@ namespace ThirdPersonCamera
                 }
             }
 
-            prevTargetPos = target.position;
+            prevTargetPos = Target.position;
             prevPosition = transform.position;
         }
 

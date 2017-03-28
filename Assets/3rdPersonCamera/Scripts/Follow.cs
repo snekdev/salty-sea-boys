@@ -37,11 +37,11 @@ namespace ThirdPersonCamera
 
                 if (checkMotionForBackwards)
                 {
-                    Vector3 motionVector = cc.target.transform.position - prevPosition;
+                    Vector3 motionVector = cc.Target.transform.position - prevPosition;
 
                     if (motionVector.magnitude > backwardsMotionThreshold)
                     {
-                        float angle = Vector3.Angle(motionVector, cc.target.transform.forward);
+                        float angle = Vector3.Angle(motionVector, cc.Target.transform.forward);
 
                         if (angle > angleThreshold)
                         {
@@ -51,19 +51,19 @@ namespace ThirdPersonCamera
                             lookBackwards = false;
                     }
 
-                    prevPosition = cc.target.transform.position;
+                    prevPosition = cc.Target.transform.position;
                 }
 
-                Quaternion toRotation = Quaternion.LookRotation((!lookBackwards ? cc.target.transform.forward + tiltVector : -cc.target.transform.forward + tiltVector), Vector3.up);
+                Quaternion toRotation = Quaternion.LookRotation((!lookBackwards ? cc.Target.transform.forward + tiltVector : -cc.Target.transform.forward + tiltVector), Vector3.up);
 
                 if (alignOnSlopes)
                 {
-                    if (Physics.Raycast(cc.target.transform.position, Vector3.down, out raycastHit, 25.0f, layerMask)) // if the range of 15.0 is not enough, increase the value
+                    if (Physics.Raycast(cc.Target.transform.position, Vector3.down, out raycastHit, 25.0f, layerMask)) // if the range of 15.0 is not enough, increase the value
                     {
                         upVector = raycastHit.normal;
                     }
 
-                    float angle = AngleSigned(Vector3.up, upVector, cc.target.transform.right);
+                    float angle = AngleSigned(Vector3.up, upVector, cc.Target.transform.right);
 
                     toRotation = Quaternion.Slerp(toRotation, toRotation * Quaternion.AngleAxis(angle, Vector3.right), Time.deltaTime * rotationSpeedSlopes);
                 }

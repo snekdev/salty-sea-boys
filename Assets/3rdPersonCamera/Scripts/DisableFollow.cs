@@ -43,7 +43,7 @@ namespace ThirdPersonCamera
             {
                 if (activateMotionCheck)
                 {
-                    Vector3 motionVector = cameraController.target.transform.position - prevPosition;
+                    Vector3 motionVector = cameraController.Target.transform.position - prevPosition;
 
                     if (motionVector.magnitude > motionThreshold)
                     {
@@ -62,7 +62,7 @@ namespace ThirdPersonCamera
                 }
             }
 
-            prevPosition = cameraController.target.transform.position;
+            prevPosition = cameraController.Target.transform.position;
         }
 
         public void ActivateFollow()

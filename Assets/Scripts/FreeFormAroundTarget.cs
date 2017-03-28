@@ -136,13 +136,13 @@ namespace ThirdPersonCamera
                     cameraController.desiredDistance -= cameraController.zoomOutStepValue;
                 }
 
-                if (cameraController.desiredDistance < 0)
-                    cameraController.desiredDistance = 0;
+                if (cameraController.desiredDistance < cameraController.minimumDistance)
+                    cameraController.desiredDistance = cameraController.minimumDistance;
+              
+                    Vector3 offsetVectorTransformed = cameraController.Target.transform.rotation * cameraController.offsetVector;
+                    transform.RotateAround(cameraController.Target.position + offsetVectorTransformed, Vector3.up, x);
 
-                Vector3 offsetVectorTransformed = cameraController.target.transform.rotation * cameraController.offsetVector;
-
-           //     transform.RotateAround(cameraController.target.position + offsetVectorTransformed, cameraController.target.up, x);
-                transform.RotateAround(cameraController.target.position + offsetVectorTransformed, Vector3.up, x);
+               
 
                 yAngle = -y;
                 // Prevent camera flipping
@@ -166,10 +166,10 @@ namespace ThirdPersonCamera
                 }
 
                 if (!cameraController.smartPivot || cameraController.cameraNormalMode
-                    && (!cameraController.bGroundHit || (cameraController.bGroundHit && y < 0) || transform.position.y > (cameraController.target.position.y + cameraController.offsetVector.y)))
+                    && (!cameraController.bGroundHit || (cameraController.bGroundHit && y < 0) || transform.position.y > (cameraController.Target.position.y + cameraController.offsetVector.y)))
                 {
                     // normal mode
-                    transform.RotateAround(cameraController.target.position + offsetVectorTransformed, transform.right, yAngle);
+                    transform.RotateAround(cameraController.Target.position + offsetVectorTransformed, transform.right, yAngle);
                 }
                 else
                 {
