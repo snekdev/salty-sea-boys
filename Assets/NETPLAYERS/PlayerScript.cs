@@ -67,7 +67,7 @@ public class PlayerScript : MonoBehaviour {
         if (isMoving)
             rig.MoveRotation(Quaternion.RotateTowards(rig.rotation, targetRotation, speed * Time.deltaTime));
         else
-            rig.MoveRotation(Quaternion.RotateTowards(rig.rotation, Quaternion.Euler(new Vector3(-67,0,0)), .3f * speed * Time.deltaTime));
+            rig.MoveRotation(Quaternion.RotateTowards(rig.rotation, Quaternion.Euler(new Vector3(-67, rig.rotation.eulerAngles.y, rig.rotation.eulerAngles.z)), .3f * speed * Time.deltaTime));
 
 
         if (waterTransform != null && transform.position.y > waterTransform.transform.position.y)
@@ -78,9 +78,10 @@ public class PlayerScript : MonoBehaviour {
         if (myTextMesh != null)
             myTextMesh.GetComponent<TextMesh>().text = PLAYERHEALTH.ToString();
 
-        if (sk != null)
+       /// if (sk != null)
         {
-            sk.SetBlendShapeWeight(0, 50 + 50 * Mathf.Sin(Time.time));
+
+            sk.SetBlendShapeWeight(0, 0);// 100f* ((Time.time % 15f) / 15));
         }
     }
 
