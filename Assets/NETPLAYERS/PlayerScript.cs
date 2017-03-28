@@ -49,7 +49,7 @@ public class PlayerScript : NetworkBehaviour
     //}
     public float speed = 50;
     Quaternion targetRotation;
-    public float pregoTimer = 0;
+   // public float pregoTimer = 0;
     // Update is called once per frame
     void Update () {
         if (!isLocalPlayer)
@@ -58,7 +58,7 @@ public class PlayerScript : NetworkBehaviour
         //if(!GetComponent<NetworkIdentity>().isLocalPlayer)
         //    return;
         Timer += Time.deltaTime;
-        pregoTimer += Time.deltaTime * 10;
+        //pregoTimer += Time.deltaTime * 10;
         if (Input.GetMouseButton(1))
         {
             Timer = 0;
@@ -111,7 +111,7 @@ public class PlayerScript : NetworkBehaviour
         if (gestation > 99)
         {
             PlayerWaistManager wasitHolder = PlayerManager.GetComponent<PlayerWaistManager>();
-            wasitHolder.TIMETOPOOP();
+            wasitHolder.TIMETOPOOP(transform.position);
             gestation = 0;
         }
 
