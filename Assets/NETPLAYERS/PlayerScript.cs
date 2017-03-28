@@ -25,6 +25,8 @@ public class PlayerScript : NetworkBehaviour
 
     public GameObject prefabFish;
 
+    GameObject FishSpawner;
+
     [SyncVar]
     public float gestation = 0;
 
@@ -98,10 +100,17 @@ public class PlayerScript : NetworkBehaviour
         //ani.SetLayerWeight(0, 100);
         sk.SetBlendShapeWeight(0, gestation);
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
+        //if (gestation >= 5)
+        //{
+        //    FishSpawner.GetComponent<FishSpawnerNetwork>().ProduceChild = true;
+        //    FishSpawner.GetComponent<FishSpawnerNetwork>().VaginaLocation = this.transform.position;
+        //    gestation = 0;
+        //}
+
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
             //CmdDoFire(this.transform.position, this.transform.rotation);
-        }
+        //}
     }
 
     void __uMMO_localPlayer_init()
@@ -118,7 +127,7 @@ public class PlayerScript : NetworkBehaviour
 
         Debug.Log("init here");
 
-
+        FishSpawner = GameObject.FindGameObjectWithTag("FishManager");
         GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
         if (spawnPoints.Length > 0)
         {
