@@ -5,6 +5,7 @@ using UnityEngine;
 public class SharksEyes : MonoBehaviour {
 
     // Use this for initialization
+    public string PlayerName;
     public Vector3 LastSeenAt = Vector3.zero;
     public bool isVisible = false;
 	void Start () {
@@ -17,6 +18,8 @@ public class SharksEyes : MonoBehaviour {
         {
             isVisible = true;
             LastSeenAt = other.transform.position;
+
+            PlayerName = other.gameObject.name;
         }
     }
 
