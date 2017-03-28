@@ -13,6 +13,7 @@ TagManager:
   - FishManager
   - Collectable
   - BlendShapeTag
+  - PlayerManager
   layers:
   - Default
   - TransparentFX
