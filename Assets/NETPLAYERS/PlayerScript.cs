@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class PlayerScript : MonoBehaviour {
+public class PlayerScript : NetworkBehaviour
+{
 
     public Animator ani;
     public Rigidbody rig;
@@ -21,24 +23,34 @@ public class PlayerScript : MonoBehaviour {
 
     GameObject myTextMesh;
 
+    public GameObject prefabFish;
 
-    // Use this for initialization
-    void Start () {
-        PLAYERHEALTH = 1000;
-        ani = GetComponent<Animator>();
-        rig = GetComponent<Rigidbody>();
+    [SyncVar]
+    public float gestation = 0;
 
-        if (GameObject.FindGameObjectsWithTag("Water").Length > 0)
-            waterTransform = GameObject.FindGameObjectsWithTag("Water")[0];
-        if (GameObject.FindGameObjectsWithTag("HUDText").Length > 0)
-            myTextMesh = GameObject.FindGameObjectsWithTag("HUDText")[0];
-
+    class SpawnFishyMessage : MessageBase
+    {
+        public Vector3 position;
+        public Quaternion rotation;
     }
+    public const short RegisterHotsMsgId = 888;
+    // Use this for initialization
+    //void Start () {
+
+
+    //}
     public float speed = 50;
     Quaternion targetRotation;
+    public float pregoTimer = 0;
     // Update is called once per frame
     void Update () {
+        if (!isLocalPlayer)
+            return;
+        //if (!isLocalPlayer)
+        //if(!GetComponent<NetworkIdentity>().isLocalPlayer)
+        //    return;
         Timer += Time.deltaTime;
+        pregoTimer += Time.deltaTime * 10;
         if (Input.GetMouseButton(1))
         {
             Timer = 0;
@@ -78,19 +90,36 @@ public class PlayerScript : MonoBehaviour {
         if (myTextMesh != null)
             myTextMesh.GetComponent<TextMesh>().text = PLAYERHEALTH.ToString();
 
-       /// if (sk != null)
-        {
+        /// if (sk != null)
+        //{
 
-            sk.SetBlendShapeWeight(0, 0);// 100f* ((Time.time % 15f) / 15));
+        //sk.SetBlendShapeWeight(0, 0);// 100f* ((Time.time % 15f) / 15));
+        //}
+        //ani.SetLayerWeight(0, 100);
+        sk.SetBlendShapeWeight(0, gestation);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            //CmdDoFire(this.transform.position, this.transform.rotation);
         }
     }
 
     void __uMMO_localPlayer_init()
     {
+        PLAYERHEALTH = 1000;
+        ani = GetComponent<Animator>();
+
+        rig = GetComponent<Rigidbody>();
+
+        if (GameObject.FindGameObjectsWithTag("Water").Length > 0)
+            waterTransform = GameObject.FindGameObjectsWithTag("Water")[0];
+        if (GameObject.FindGameObjectsWithTag("HUDText").Length > 0)
+            myTextMesh = GameObject.FindGameObjectsWithTag("HUDText")[0];
+
         Debug.Log("init here");
 
-     
-           GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
+
+        GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
         if (spawnPoints.Length > 0)
         {
           transform.position = spawnPoints[0].transform.position;
@@ -102,8 +131,22 @@ public class PlayerScript : MonoBehaviour {
 
         Camera.main.GetComponent<ThirdPersonCamera.CameraController>().Target = this.transform;
     }
+    [Command]
+    void CmdDoFire(Vector3 positionz, Quaternion rotationz)
+    {
+        //GameObject tempHolder = Instantiate(Resources.Load("FISH", typeof(GameObject)), positionz, rotationz) as GameObject;
 
-    void OnTriggerEnter(Collider other)
+        //NetworkServer.Spawn(tempHolder);
+
+        //GameObject tempHolder = Instantiate(Resources.Load("Fishy2", typeof(GameObject)), positionz + new Vector3(0, -0.2f, 0), rotationz) as GameObject;
+        Debug.Log("TEST");
+        
+        //GameObject tempHolder = Instantiate(prefabFish, positionz + new Vector3(0, -0.2f, 0), rotationz) as GameObject;
+
+
+        //NetworkServer.Spawn(tempHolder);
+    }
+        void OnTriggerEnter(Collider other)
     {
         //Destroy(other.gameObject);
         if (other.gameObject.tag == "Fish")
