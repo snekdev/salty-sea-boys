@@ -107,7 +107,7 @@ public class PlayerScript : NetworkBehaviour
         if (gestation > 100)
         {
             PlayerWaistManager wasitHolder = PlayerManager.GetComponent<PlayerWaistManager>();
-            wasitHolder.TIMETOPOOP();
+            wasitHolder.TIMETOPOOP(transform.position);
             gestation = 0;
         }
 
