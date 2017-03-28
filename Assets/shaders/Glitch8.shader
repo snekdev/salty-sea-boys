@@ -52,7 +52,7 @@ Shader "Unlit/Glitch8"
 				UNITY_FOG_COORDS(1)
 				float4 vertex : SV_POSITION;
 				float3 wpos : TEXCOORD2;
-				float3 vpos : TEXCOORD3;
+			//	float3 vpos : TEXCOORD3;
 			};
 
 			sampler2D _MainTex;
