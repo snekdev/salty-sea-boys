@@ -298,6 +298,7 @@ MonoBehaviour:
   - {fileID: 1466453468402832, guid: e33fa1a7f0f1a1740b4c9678c8187125, type: 2}
   - {fileID: 1895593649553760, guid: bfd2b5ec18876ff4ba10925f6ef24ccb, type: 2}
   - {fileID: 1895593649553760, guid: 96da85e187d8db84f84c06f8b05b140c, type: 2}
+  - {fileID: 1895593649553760, guid: 0d7c2cf3142a8524290c3481aded2d55, type: 2}
   materials:
   - {fileID: 2100000, guid: 93df30872c059af499b2695e3dc495c2, type: 2}
   - {fileID: 2100000, guid: 524e912a926edcf4f9efcb72aadc593c, type: 2}
@@ -307,6 +308,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: ac37af95af030fc4087509e9a6847c33, type: 2}
   - {fileID: 2100000, guid: 861139cd9effc604ebdd218b616d12c1, type: 2}
   - {fileID: 2100000, guid: a09e86884185e7248a6bf90d7fae0282, type: 2}
+  - {fileID: 2100000, guid: 4e0f28d23c1aa844b852a40c57011a0f, type: 2}
   distanceBetween: 4
 --- !u!4 &495792526
 Transform:
