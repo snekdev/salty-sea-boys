@@ -32,6 +32,10 @@ public class PlayerScript : NetworkBehaviour
     [SyncVar]
     public float gestation = 0;
 
+    const float MaxHealth = 100;
+    [SyncVar]
+    public float currentHealth = MaxHealth;
+
     class SpawnFishyMessage : MessageBase
     {
         public Vector3 position;
