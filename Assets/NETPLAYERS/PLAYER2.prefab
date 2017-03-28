@@ -1167,7 +1167,7 @@ Transform:
   m_GameObject: {fileID: 1856169664685172}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 4012021845959818}
   m_Father: {fileID: 0}
@@ -1625,6 +1625,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ani: {fileID: 0}
   rig: {fileID: 0}
+  PLAYERHEALTH: 0
   speed: 100
 --- !u!114 &114630557367923116
 MonoBehaviour:
@@ -1690,7 +1691,7 @@ CapsuleCollider:
   m_Radius: 2
   m_Height: 12
   m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 15.46}
+  m_Center: {x: 0, y: 0, z: 6.27}
 --- !u!137 &137227623695671870
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
