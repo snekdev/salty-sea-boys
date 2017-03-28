@@ -1,0 +1,199 @@
+fileFormatVersion: 2
+guid: e877e682c996ca24e8aa8bebb6caeb05
+timeCreated: 1490667609
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: joint10
+    100002: joint11
+    100004: joint12
+    100006: joint13
+    100008: joint14
+    100010: joint15
+    100012: joint2
+    100014: joint3
+    100016: joint4
+    100018: joint5
+    100020: joint6
+    100022: joint7
+    100024: joint8
+    100026: joint9
+    100028: pCube1
+    100030: polySurface2
+    100032: polySurface3
+    100034: polySurface5
+    100036: polySurface6
+    100038: root
+    100040: //RootNode
+    400000: joint10
+    400002: joint11
+    400004: joint12
+    400006: joint13
+    400008: joint14
+    400010: joint15
+    400012: joint2
+    400014: joint3
+    400016: joint4
+    400018: joint5
+    400020: joint6
+    400022: joint7
+    400024: joint8
+    400026: joint9
+    400028: pCube1
+    400030: polySurface2
+    400032: polySurface3
+    400034: polySurface5
+    400036: polySurface6
+    400038: root
+    400040: //RootNode
+    2300000: polySurface3
+    2300002: polySurface6
+    3300000: polySurface3
+    3300002: polySurface6
+    4300000: polySurface3
+    4300002: polySurface6
+    4300004: polySurface5
+    7400000: SharkIdle
+    9500000: //RootNode
+    13700000: polySurface5
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: SharkIdle
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: pCube1
+        weight: 1
+      - path: pCube1/polySurface3
+        weight: 1
+      - path: polySurface2
+        weight: 1
+      - path: polySurface2/polySurface6
+        weight: 1
+      - path: polySurface5
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/joint2
+        weight: 1
+      - path: root/joint2/joint3
+        weight: 1
+      - path: root/joint2/joint3/joint4
+        weight: 1
+      - path: root/joint5
+        weight: 1
+      - path: root/joint5/joint6
+        weight: 1
+      - path: root/joint5/joint6/joint7
+        weight: 1
+      - path: root/joint8
+        weight: 1
+      - path: root/joint8/joint9
+        weight: 1
+      - path: root/joint8/joint9/joint10
+        weight: 1
+      - path: root/joint8/joint9/joint10/joint11
+        weight: 1
+      - path: root/joint8/joint12
+        weight: 1
+      - path: root/joint8/joint12/joint13
+        weight: 1
+      - path: root/joint8/joint14
+        weight: 1
+      - path: root/joint8/joint14/joint15
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
