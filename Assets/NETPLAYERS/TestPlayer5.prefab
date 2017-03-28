@@ -1542,7 +1542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cce506911b37443b8ae984adddae4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ani: {fileID: 95016744703571044}
+  ani: {fileID: 0}
   rig: {fileID: 0}
   sk: {fileID: 137190190513550326}
   PLAYERHEALTH: 0

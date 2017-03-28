@@ -50,18 +50,18 @@ public class PlayerWaistManager : NetworkBehaviour
 
         currentHealth -= Time.deltaTime * 0.01f;
 
-        GameObject[] myBlendShapes = GameObject.FindGameObjectsWithTag("BlendShapeTag");
-        foreach (var item in myBlendShapes)
-        {
-            item.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(0, currentHealth);
-        }
+        //GameObject[] myBlendShapes = GameObject.FindGameObjectsWithTag("BlendShapeTag");
+        //foreach (var item in myBlendShapes)
+        //{
+        //    item.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(0, currentHealth);
+        //}
 
 
     }
 
-    public void TIMETOPOOP(Vector3 pos)
+    public void TIMETOPOOP()
     {
-        GameObject tempHolder = Instantiate(myPrefab, pos, Quaternion.identity) as GameObject;
+        GameObject tempHolder = Instantiate(myPrefab, Vector3.zero, Quaternion.identity) as GameObject;
 
         NetworkServer.Spawn(tempHolder);
     }
