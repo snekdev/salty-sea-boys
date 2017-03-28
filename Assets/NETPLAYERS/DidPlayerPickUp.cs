@@ -30,7 +30,7 @@ public class DidPlayerPickUp : NetworkBehaviour {
             //Owner = other.transform;
             if (Collectables.activeSelf == true)
             {
-                other.gameObject.GetComponent<PlayerScript>().gestation += 100;
+                other.gameObject.GetComponent<PlayerScript>().gestation += 5;
                 //GameObject.FindGameObjectWithTag("FishManager").GetComponent<FishSpawnerNetwork>().ProduceChild = true;
                 //Cmdspawnfish();
                 //Collectables.SetActive(false);

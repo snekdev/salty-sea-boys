@@ -12,6 +12,8 @@ TagManager:
   - HUDText
   - FishManager
   - Collectable
+  - BlendShapeTag
+  - PlayerManager
   layers:
   - Default
   - TransparentFX

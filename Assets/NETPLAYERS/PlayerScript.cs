@@ -23,6 +23,8 @@ public class PlayerScript : NetworkBehaviour
 
     GameObject myTextMesh;
 
+    GameObject PlayerManager;
+
     public GameObject prefabFish;
 
     GameObject FishSpawner;
@@ -102,6 +104,13 @@ public class PlayerScript : NetworkBehaviour
         //sk.SetBlendShapeWeight(0, ani.GetFloat("Bloat"));
         sk.SetBlendShapeWeight(0, gestation);
 
+        if (gestation > 10)
+        {
+            PlayerWaistManager wasitHolder = PlayerManager.GetComponent<PlayerWaistManager>();
+            wasitHolder.TIMETOPOOP();
+            gestation = 0;
+        }
+
         //if (gestation >= 5)
         //{
         //    FishSpawner.GetComponent<FishSpawnerNetwork>().ProduceChild = true;
@@ -121,6 +130,7 @@ public class PlayerScript : NetworkBehaviour
         ani = GetComponent<Animator>();
 
         rig = GetComponent<Rigidbody>();
+        PlayerManager = GameObject.FindGameObjectWithTag("PlayerManager");
 
         if (GameObject.FindGameObjectsWithTag("Water").Length > 0)
             waterTransform = GameObject.FindGameObjectsWithTag("Water")[0];
