@@ -59,15 +59,8 @@ public class PlayerWaistManager : NetworkBehaviour
 
     }
 
-    //public void TIMETOPOOP()
-    //{
-    //    GameObject tempHolder = Instantiate(myPrefab, Vector3.zero, Quaternion.identity) as GameObject;
 
-    //    NetworkServer.Spawn(tempHolder);
-
-
-    //}
-
+   
     public void TIMETOPOOP(Vector3 pos)
     {
         GameObject tempHolder = Instantiate(myPrefab, pos, Quaternion.identity) as GameObject;

@@ -49,6 +49,7 @@ public class DidPlayerPickUp : NetworkBehaviour {
             //Owner = other.transform;
             //if (Collectables.activeSelf == true)
             //{
+
            // Debug.Log("HITTTTT");
             other.gameObject.GetComponent<PlayerScript>().gestation += gestation;
             //GameObject.FindGameObjectWithTag("FishManager").GetComponent<FishSpawnerNetwork>().ProduceChild = true;

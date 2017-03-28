@@ -32,6 +32,10 @@ public class PlayerScript : NetworkBehaviour
     [SyncVar]
     public float gestation = 0;
 
+    const float MaxHealth = 100;
+    [SyncVar]
+    public float currentHealth = MaxHealth;
+
     class SpawnFishyMessage : MessageBase
     {
         public Vector3 position;
@@ -45,7 +49,7 @@ public class PlayerScript : NetworkBehaviour
     //}
     public float speed = 50;
     Quaternion targetRotation;
-    public float pregoTimer = 0;
+   // public float pregoTimer = 0;
     // Update is called once per frame
     void Update () {
         if (!isLocalPlayer)
@@ -54,7 +58,7 @@ public class PlayerScript : NetworkBehaviour
         //if(!GetComponent<NetworkIdentity>().isLocalPlayer)
         //    return;
         Timer += Time.deltaTime;
-        pregoTimer += Time.deltaTime * 10;
+        //pregoTimer += Time.deltaTime * 10;
         if (Input.GetMouseButton(1))
         {
             Timer = 0;
@@ -104,7 +108,7 @@ public class PlayerScript : NetworkBehaviour
         //sk.SetBlendShapeWeight(0, ani.GetFloat("Bloat"));
         sk.SetBlendShapeWeight(0, gestation);
 
-        if (gestation > 100)
+        if (gestation > 99)
         {
             PlayerWaistManager wasitHolder = PlayerManager.GetComponent<PlayerWaistManager>();
             wasitHolder.TIMETOPOOP(transform.position);
