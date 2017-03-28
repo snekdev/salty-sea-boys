@@ -6,7 +6,7 @@ using SoftRare.Net.Plugin;
 
 public class PlayerWaistManager : NetworkBehaviour
 {
-    public TextMesh myMesh;
+    //public TextMesh myMesh;
     public PL_NetworkManager_Default NetMngr;
     public GameObject myPrefab;
     int connectedPlayers = 0;
@@ -28,7 +28,7 @@ public class PlayerWaistManager : NetworkBehaviour
             ServerStuff();
             
         }
-        myMesh.text = currentHealth.ToString();
+        //myMesh.text = currentHealth.ToString();
     }
     List<PlayerController> myPlayer = new List<PlayerController>();
     void ServerStuff()
