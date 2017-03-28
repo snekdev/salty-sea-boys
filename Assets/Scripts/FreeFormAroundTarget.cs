@@ -8,6 +8,8 @@ namespace ThirdPersonCamera
     [RequireComponent(typeof(CameraController))]
     public class FreeFormAroundTarget : MonoBehaviour
     {
+        Transform emptyTransform;
+
         public enum CameraMode
         {
             Always,
@@ -46,6 +48,8 @@ namespace ThirdPersonCamera
 
         public void Start()
         {
+            emptyTransform = new GameObject("dummy camera target").transform;
+
             cameraController = GetComponent<CameraController>();
 
             mouse0 = false;
@@ -87,6 +91,10 @@ namespace ThirdPersonCamera
 
         public void Update()
         {
+            Transform target = emptyTransform;
+            if (cameraController != null && cameraController.Target != null)
+                target = cameraController.Target;
+
             if (cameraEnabled)
             {
                 mouse0 = Input.GetMouseButton(0);
@@ -139,8 +147,8 @@ namespace ThirdPersonCamera
                 if (cameraController.desiredDistance < cameraController.minimumDistance)
                     cameraController.desiredDistance = cameraController.minimumDistance;
               
-                    Vector3 offsetVectorTransformed = cameraController.Target.transform.rotation * cameraController.offsetVector;
-                    transform.RotateAround(cameraController.Target.position + offsetVectorTransformed, Vector3.up, x);
+                Vector3 offsetVectorTransformed = target.rotation * cameraController.offsetVector;
+                transform.RotateAround(target.position + offsetVectorTransformed, Vector3.up, x);
 
                
 
@@ -166,10 +174,10 @@ namespace ThirdPersonCamera
                 }
 
                 if (!cameraController.smartPivot || cameraController.cameraNormalMode
-                    && (!cameraController.bGroundHit || (cameraController.bGroundHit && y < 0) || transform.position.y > (cameraController.Target.position.y + cameraController.offsetVector.y)))
+                    && (!cameraController.bGroundHit || (cameraController.bGroundHit && y < 0) || transform.position.y > (target.position.y + cameraController.offsetVector.y)))
                 {
                     // normal mode
-                    transform.RotateAround(cameraController.Target.position + offsetVectorTransformed, transform.right, yAngle);
+                    transform.RotateAround(target.position + offsetVectorTransformed, transform.right, yAngle);
                 }
                 else
                 {
