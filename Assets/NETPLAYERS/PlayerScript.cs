@@ -28,7 +28,7 @@ public class PlayerScript : NetworkBehaviour
     void Start () {
         PLAYERHEALTH = 1000;
         ani = GetComponent<Animator>();
-        ani.SetLayerWeight(0, 100);
+
         rig = GetComponent<Rigidbody>();
 
         if (GameObject.FindGameObjectsWithTag("Water").Length > 0)
@@ -45,7 +45,7 @@ public class PlayerScript : NetworkBehaviour
         if (!isLocalPlayer)
             return;
         Timer += Time.deltaTime;
-        pregoTimer += Time.deltaTime;
+        pregoTimer += Time.deltaTime * 10;
         if (Input.GetMouseButton(1))
         {
             Timer = 0;
@@ -90,7 +90,8 @@ public class PlayerScript : NetworkBehaviour
 
         //sk.SetBlendShapeWeight(0, 0);// 100f* ((Time.time % 15f) / 15));
         //}
-        
+        //ani.SetLayerWeight(0, 100);
+        sk.SetBlendShapeWeight(0, pregoTimer);
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
