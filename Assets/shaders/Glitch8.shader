@@ -43,7 +43,7 @@ Shader "Unlit/Glitch8"
 				float4 normal : NORMAL;
 
 				float4 vertex : POSITION;
-				float2 uv : TEXCOORD0; 
+				float2 uv : TEXCOORD0;  
 			};
 
 			struct v2f
@@ -51,8 +51,8 @@ Shader "Unlit/Glitch8"
 				float2 uv : TEXCOORD0;
 				UNITY_FOG_COORDS(1)
 				float4 vertex : SV_POSITION;
-				float3 wpos : TEXCOORD1;
-				float3 vpos : TEXCOORD2;
+				float3 wpos : TEXCOORD2;
+				float3 vpos : TEXCOORD3;
 			};
 
 			sampler2D _MainTex;

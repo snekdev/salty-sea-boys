@@ -13,20 +13,32 @@ public class CoralSpawner : MonoBehaviour {
     public int numberPerSpecies;
 	// Use this for initialization
 	void Start () {
-     //   AddCoral();
+        //   AddCoral();
+        StartCoroutine(CoverWithCoral());
 
+    }
+
+    public IEnumerator CoverWithCoral()
+    {
+        GameObject[] rocks = GameObject.FindGameObjectsWithTag("CoverWithCoral");
+
+        foreach (GameObject rock in rocks)
+        {
+            AddCoral(rock);
+            yield return null;
+        }
     }
 	
 	// Update is called once per frame
-	void Update () {
-		if (Input.GetKeyDown(KeyCode.Space))
+	void Update () {//rock.transform
+		//if (Input.GetKeyDown(KeyCode.Space))
         {
-            AddCoral();
+        //    AddCoral();
         }
 	}
     
 
-    public void AddCoral()
+    public void AddCoral(GameObject rock)
     {
         foreach(GameObject coralPrefab in coralPrefabs)
         {
@@ -34,7 +46,7 @@ public class CoralSpawner : MonoBehaviour {
             if (temp == null)
                 temp = new GameObject("temp");
 
-            Mesh currentMesh = transform.GetComponent<MeshFilter>().mesh;
+            Mesh currentMesh = rock.GetComponent<MeshFilter>().mesh;
             Mesh coralMesh = coralPrefab.GetComponent<MeshFilter>().sharedMesh;
             Material material = coralPrefab.GetComponent<MeshRenderer>().sharedMaterial;
 
@@ -43,9 +55,12 @@ public class CoralSpawner : MonoBehaviour {
             coralHolder.AddComponent<MeshRenderer>();
             coralHolder.GetComponent<MeshRenderer>().material = material;
 
-            CombineInstance[] combine = new CombineInstance[numberPerSpecies];
+            ///    int verticesPlaced = 0;
 
-            for (int i = 0; i < numberPerSpecies; ++i)
+            int maximum = Mathf.Min(65534 / coralMesh.vertices.Length, numberPerSpecies);
+
+            CombineInstance[] combine = new CombineInstance[maximum];
+            for (int i = 0; i < maximum; ++i)
             {
                 {
                     int index = Random.Range(0, currentMesh.triangles.Length / 3);
@@ -66,7 +81,7 @@ public class CoralSpawner : MonoBehaviour {
 
 
                     Vector3 point = (1 - Mathf.Sqrt(r1)) * p1 + (Mathf.Sqrt(r1) * (1 - r2)) * p2 + (Mathf.Sqrt(r1) * r2) * p3;
-                    temp.transform.position = transform.TransformPoint(point);
+                    temp.transform.position =rock.transform.TransformPoint(point);
                 }
                 temp.transform.rotation = Quaternion.Euler(Random.Range(0, 1f), Random.Range(0, 1f), Random.Range(0, 1f));
                 combine[i].mesh = coralMesh;

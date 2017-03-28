@@ -35,7 +35,7 @@ Shader "coral/coral2"
 #pragma multi_compile_fog
 
 #include "UnityCG.cginc"
-
+		 
 	struct appdata
 	{
 		float4 vertex : POSITION;
@@ -47,8 +47,8 @@ Shader "coral/coral2"
 		float2 uv : TEXCOORD0;
 		UNITY_FOG_COORDS(1)
 			float4 vertex : SV_POSITION;
-		float3 wpos : TEXCOORD1;
-		float3 vpos : TEXCOORD2;
+		float3 wpos : TEXCOORD2;
+		float3 vpos : TEXCOORD3;
 	};
 
 	sampler2D _MainTex;
