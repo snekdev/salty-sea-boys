@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class PlayerScript : MonoBehaviour {
+public class PlayerScript : NetworkBehaviour
+{
 
     public Animator ani;
     public Rigidbody rig;
@@ -26,6 +28,7 @@ public class PlayerScript : MonoBehaviour {
     void Start () {
         PLAYERHEALTH = 1000;
         ani = GetComponent<Animator>();
+        ani.SetLayerWeight(0, 100);
         rig = GetComponent<Rigidbody>();
 
         if (GameObject.FindGameObjectsWithTag("Water").Length > 0)
@@ -36,9 +39,13 @@ public class PlayerScript : MonoBehaviour {
     }
     public float speed = 50;
     Quaternion targetRotation;
+    public float pregoTimer = 0;
     // Update is called once per frame
     void Update () {
+        if (!isLocalPlayer)
+            return;
         Timer += Time.deltaTime;
+        pregoTimer += Time.deltaTime;
         if (Input.GetMouseButton(1))
         {
             Timer = 0;
@@ -78,10 +85,16 @@ public class PlayerScript : MonoBehaviour {
         if (myTextMesh != null)
             myTextMesh.GetComponent<TextMesh>().text = PLAYERHEALTH.ToString();
 
-       /// if (sk != null)
-        {
+        /// if (sk != null)
+        //{
 
-            sk.SetBlendShapeWeight(0, 0);// 100f* ((Time.time % 15f) / 15));
+        //sk.SetBlendShapeWeight(0, 0);// 100f* ((Time.time % 15f) / 15));
+        //}
+        
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            CmdDoFire(this.transform.position, this.transform.rotation);
         }
     }
 
@@ -89,8 +102,8 @@ public class PlayerScript : MonoBehaviour {
     {
         Debug.Log("init here");
 
-     
-           GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
+
+        GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
         if (spawnPoints.Length > 0)
         {
           transform.position = spawnPoints[0].transform.position;
@@ -102,8 +115,22 @@ public class PlayerScript : MonoBehaviour {
 
         Camera.main.GetComponent<ThirdPersonCamera.CameraController>().Target = this.transform;
     }
+    [Command]
+    void CmdDoFire(Vector3 positionz, Quaternion rotationz)
+    {
+        //GameObject bullet = (GameObject)Instantiate(
+        //    prefabHolder.GetComponent<BuildingManager>().BuildingPrefabs[(int)prefabHolder.GetComponent<BuildingManager>().SelectedBuildable],
+        //    positionz,
+        //    rotationz);
+                GameObject tempHolder = Instantiate(Resources.Load("FISH", typeof(GameObject)), positionz, rotationz) as GameObject;
 
-    void OnTriggerEnter(Collider other)
+
+                NetworkServer.Spawn(tempHolder);
+            
+
+        
+    }
+        void OnTriggerEnter(Collider other)
     {
         //Destroy(other.gameObject);
         if (other.gameObject.tag == "Fish")
