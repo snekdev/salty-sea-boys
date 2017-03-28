@@ -68,7 +68,7 @@ public class SharkAi : MonoBehaviour {
                 thisRigid.AddForce(Direction * moveSpeed * 1.5f);
                 thisRigid.MoveRotation(transform.rotation = Quaternion.RotateTowards(thisRigid.rotation, targetRotation, speed * Time.deltaTime));
 
-                GameObject.Find(sharkEyes.PlayerName).GetComponent<PlayerScript>().PLAYERHEALTH -= 1;
+                //GameObject.Find(sharkEyes.PlayerName).GetComponent<PlayerScript>().PLAYERHEALTH -= 1;
             }
             else
             {

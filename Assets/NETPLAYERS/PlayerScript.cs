@@ -23,20 +23,22 @@ public class PlayerScript : NetworkBehaviour
 
     GameObject myTextMesh;
 
+    public GameObject prefabFish;
 
-    // Use this for initialization
-    void Start () {
-        PLAYERHEALTH = 1000;
-        ani = GetComponent<Animator>();
+    [SyncVar]
+    public float gestation = 0;
 
-        rig = GetComponent<Rigidbody>();
-
-        if (GameObject.FindGameObjectsWithTag("Water").Length > 0)
-            waterTransform = GameObject.FindGameObjectsWithTag("Water")[0];
-        if (GameObject.FindGameObjectsWithTag("HUDText").Length > 0)
-            myTextMesh = GameObject.FindGameObjectsWithTag("HUDText")[0];
-
+    class SpawnFishyMessage : MessageBase
+    {
+        public Vector3 position;
+        public Quaternion rotation;
     }
+    public const short RegisterHotsMsgId = 888;
+    // Use this for initialization
+    //void Start () {
+
+
+    //}
     public float speed = 50;
     Quaternion targetRotation;
     public float pregoTimer = 0;
@@ -44,6 +46,9 @@ public class PlayerScript : NetworkBehaviour
     void Update () {
         if (!isLocalPlayer)
             return;
+        //if (!isLocalPlayer)
+        //if(!GetComponent<NetworkIdentity>().isLocalPlayer)
+        //    return;
         Timer += Time.deltaTime;
         pregoTimer += Time.deltaTime * 10;
         if (Input.GetMouseButton(1))
@@ -91,16 +96,26 @@ public class PlayerScript : NetworkBehaviour
         //sk.SetBlendShapeWeight(0, 0);// 100f* ((Time.time % 15f) / 15));
         //}
         //ani.SetLayerWeight(0, 100);
-        sk.SetBlendShapeWeight(0, pregoTimer);
+        sk.SetBlendShapeWeight(0, gestation);
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            CmdDoFire(this.transform.position, this.transform.rotation);
+            //CmdDoFire(this.transform.position, this.transform.rotation);
         }
     }
 
     void __uMMO_localPlayer_init()
     {
+        PLAYERHEALTH = 1000;
+        ani = GetComponent<Animator>();
+
+        rig = GetComponent<Rigidbody>();
+
+        if (GameObject.FindGameObjectsWithTag("Water").Length > 0)
+            waterTransform = GameObject.FindGameObjectsWithTag("Water")[0];
+        if (GameObject.FindGameObjectsWithTag("HUDText").Length > 0)
+            myTextMesh = GameObject.FindGameObjectsWithTag("HUDText")[0];
+
         Debug.Log("init here");
 
 
@@ -119,17 +134,17 @@ public class PlayerScript : NetworkBehaviour
     [Command]
     void CmdDoFire(Vector3 positionz, Quaternion rotationz)
     {
-        //GameObject bullet = (GameObject)Instantiate(
-        //    prefabHolder.GetComponent<BuildingManager>().BuildingPrefabs[(int)prefabHolder.GetComponent<BuildingManager>().SelectedBuildable],
-        //    positionz,
-        //    rotationz);
-                GameObject tempHolder = Instantiate(Resources.Load("FISH", typeof(GameObject)), positionz, rotationz) as GameObject;
+        //GameObject tempHolder = Instantiate(Resources.Load("FISH", typeof(GameObject)), positionz, rotationz) as GameObject;
 
+        //NetworkServer.Spawn(tempHolder);
 
-                NetworkServer.Spawn(tempHolder);
-            
-
+        //GameObject tempHolder = Instantiate(Resources.Load("Fishy2", typeof(GameObject)), positionz + new Vector3(0, -0.2f, 0), rotationz) as GameObject;
+        Debug.Log("TEST");
         
+        //GameObject tempHolder = Instantiate(prefabFish, positionz + new Vector3(0, -0.2f, 0), rotationz) as GameObject;
+
+
+        //NetworkServer.Spawn(tempHolder);
     }
         void OnTriggerEnter(Collider other)
     {

@@ -480,7 +480,7 @@ GameObject:
   - component: {fileID: 114196818694164412}
   m_Layer: 0
   m_Name: TestPlayer3
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1543,7 +1543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Animator: {fileID: 95791099945196752}
-  m_ParameterSendBits: 0
+  m_ParameterSendBits: 1
   param0: 
   param1: 
   param2: 
@@ -1599,6 +1599,7 @@ MonoBehaviour:
   PLAYERHEALTH: 0
   gravity: 20
   moveForce: 15
+  prefabFish: {fileID: 1839825509619630, guid: 9b26f909ba3f6a14c91962c2879bb7e3, type: 2}
   speed: 50
   pregoTimer: 0
 --- !u!114 &114420932228591754

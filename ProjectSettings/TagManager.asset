@@ -10,6 +10,8 @@ TagManager:
   - Shark
   - CoverWithCoral
   - HUDText
+  - FishManager
+  - Collectable
   layers:
   - Default
   - TransparentFX
