@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33748953340159620}
   - component: {fileID: 23039522357969228}
   m_Layer: 0
-  m_Name: coral4
+  m_Name: icostar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,7 +54,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 1a82313572e45d74c81fec26af9e82fe, type: 2}
+  - {fileID: 2100000, guid: ac37af95af030fc4087509e9a6847c33, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79,4 +79,4 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1466453468402832}
-  m_Mesh: {fileID: 4300000, guid: ba9e0bf1f4e48c24983695c0d89499c7, type: 3}
+  m_Mesh: {fileID: 4300000, guid: b989d2b9042ea4a459c84b2ac7afdf0e, type: 3}

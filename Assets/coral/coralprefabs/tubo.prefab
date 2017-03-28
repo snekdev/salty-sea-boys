@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33748953340159620}
   - component: {fileID: 23039522357969228}
   m_Layer: 0
-  m_Name: coral2
+  m_Name: tubo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,7 +54,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: cec1ccccdd9a41d4a878ea71c65fff51, type: 2}
+  - {fileID: 2100000, guid: 524e912a926edcf4f9efcb72aadc593c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79,4 +79,4 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1466453468402832}
-  m_Mesh: {fileID: 4300000, guid: b989d2b9042ea4a459c84b2ac7afdf0e, type: 3}
+  m_Mesh: {fileID: 4300000, guid: abed4a6ed3f06f94a9d5747c8a3e471e, type: 3}

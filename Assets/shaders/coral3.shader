@@ -47,8 +47,8 @@ Shader "coral/coral3"
 				float2 uv : TEXCOORD0;
 				UNITY_FOG_COORDS(1)
 				float4 vertex : SV_POSITION;
-				float3 wpos : TEXCOORD1;
-				float3 vpos : TEXCOORD2;
+				float3 worldPos : TEXCOORD2; 
+				float3 vpos : TEXCOORD3;
 			};
 
 			sampler2D _MainTex;
@@ -70,7 +70,7 @@ Shader "coral/coral3"
 			{ 
 				v2f o;
 				float3 worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
-				o.wpos = worldPos;
+				o.worldPos = worldPos;
 
 				float3 aaa = worldPos * _WorldSpaceScale;
 
@@ -89,8 +89,8 @@ Shader "coral/coral3"
 				fixed4 col = tex2D(_MainTex, i.uv);
 
 				float4 aaa = mul(unity_ObjectToWorld, i.vertex); 
-				i.wpos *= _WorldSpaceScale;
-				col = lerp(_Color1, _Color2, 1 + .5 *(_SinScale *sin(i.wpos.y + _Dilation *_Time.y)));
+				i.worldPos *= _WorldSpaceScale;
+				col = lerp(_Color1, _Color2, 1 + .5 *(_SinScale *sin(i.worldPos.y + _Dilation *_Time.y)));
 				UNITY_APPLY_FOG(i.fogCoord, col);
 				return col;
 			}

@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33748953340159620}
   - component: {fileID: 23039522357969228}
   m_Layer: 0
-  m_Name: kelp
+  m_Name: doring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1466453468402832}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.1113353, y: -0.87757015, z: 12.203875}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -54,7 +54,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 0fa2771d7d03c6c448f73f7112c6650c, type: 2}
+  - {fileID: 2100000, guid: 1a82313572e45d74c81fec26af9e82fe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79,4 +79,4 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1466453468402832}
-  m_Mesh: {fileID: 4300000, guid: bb990ba04bf508946a57568c85d4009c, type: 3}
+  m_Mesh: {fileID: 4300000, guid: ba9e0bf1f4e48c24983695c0d89499c7, type: 3}
