@@ -9,8 +9,17 @@ public class CoralSpawner : MonoBehaviour {
     public Material coralMaterial;
     public GameObject temp;
 
+    [System.Serializable]
+    public class SpawnParameter
+    {
+        public GameObject prefab;
+        public float maxHeight;
+        public float minHeight;
+    }
+
     Transform waterTransform;
     public List<GameObject> coralPrefabs;
+    public List<SpawnParameter> spawnParameters;
     public int numberPerSpecies;
 	// Use this for initialization
 	void Start () {
@@ -42,8 +51,10 @@ public class CoralSpawner : MonoBehaviour {
 
     public void AddCoral(GameObject rock)
     {
-        foreach(GameObject coralPrefab in coralPrefabs)
+        //   foreach(GameObject coralPrefab in coralPrefabs)
+        foreach (SpawnParameter spawnParameter in spawnParameters)
         {
+            GameObject coralPrefab = spawnParameter.prefab;
 
             if (temp == null)
                 temp = new GameObject("temp");
@@ -84,14 +95,15 @@ public class CoralSpawner : MonoBehaviour {
 
 
                     Vector3 point = (1 - Mathf.Sqrt(r1)) * p1 + (Mathf.Sqrt(r1) * (1 - r2)) * p2 + (Mathf.Sqrt(r1) * r2) * p3;
-                    temp.transform.position =rock.transform.TransformPoint(point);
+                    temp.transform.position = rock.transform.TransformPoint(point);
                 }
 
                 temp.transform.rotation = Quaternion.Euler(Random.Range(0, 1f), Random.Range(0, 1f), Random.Range(0, 1f));
-                if (waterTransform != null && temp.transform.position.y > waterTransform.position.y)
-                    combine[i].mesh = emptyMesh;
-                else
+                //  if (waterTransform != null && temp.transform.position.y > waterTransform.position.y &&
+                if (temp.transform.position.y > spawnParameter.minHeight && temp.transform.position.y < spawnParameter.maxHeight)
                     combine[i].mesh = coralMesh;
+                else
+                    combine[i].mesh = emptyMesh;
                 combine[i].transform = temp.transform.localToWorldMatrix;
             }
 
