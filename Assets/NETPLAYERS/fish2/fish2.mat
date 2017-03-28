@@ -64,7 +64,7 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Metallic: 0
-    - _ModConst: 10.51
+    - _ModConst: 62.18
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
@@ -80,6 +80,6 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1: {r: 0.626751, g: 0.48540223, b: 0.9852941, a: 1}
-    - _Color2: {r: 0.9705882, g: 0.87077314, b: 0.69225776, a: 1}
+    - _Color1: {r: 0.9264706, g: 0.9196583, b: 0.9196583, a: 1}
+    - _Color2: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

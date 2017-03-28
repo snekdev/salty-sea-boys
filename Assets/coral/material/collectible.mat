@@ -23,13 +23,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 3.79
-    - _Dilation: 0.7
-    - _ModConst: 0.07
+    - _Dilation: -0.37
+    - _ModConst: 0.26
     - _Scale: 0
-    - _Scale1: 0
-    - _SinScale: 0.5
+    - _Scale1: 1.14
+    - _SinScale: -0.2
     - _SinScale2: 2.51
-    - _WorldSpaceScale: 9.78
+    - _WorldSpaceScale: 5.03
     m_Colors:
-    - _Color1: {r: 0.9632353, g: 0.056660898, b: 0.056660898, a: 1}
-    - _Color2: {r: 0.9852941, g: 0.21734425, b: 0.5827821, a: 1}
+    - _Color1: {r: 1, g: 0.30882353, b: 0.30882353, a: 1}
+    - _Color2: {r: 0.64705884, g: 0.114186846, b: 0.114186846, a: 1}
