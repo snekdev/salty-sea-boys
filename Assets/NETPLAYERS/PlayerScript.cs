@@ -98,6 +98,8 @@ public class PlayerScript : NetworkBehaviour
         //sk.SetBlendShapeWeight(0, 0);// 100f* ((Time.time % 15f) / 15));
         //}
         //ani.SetLayerWeight(0, 100);
+        //ani.SetFloat("Bloat", pregoTimer);
+        //sk.SetBlendShapeWeight(0, ani.GetFloat("Bloat"));
         sk.SetBlendShapeWeight(0, gestation);
 
         //if (gestation >= 5)
@@ -109,7 +111,7 @@ public class PlayerScript : NetworkBehaviour
 
         //if (Input.GetKeyDown(KeyCode.Space))
         //{
-            //CmdDoFire(this.transform.position, this.transform.rotation);
+        //CmdDoFire(this.transform.position, this.transform.rotation);
         //}
     }
 

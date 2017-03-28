@@ -13,6 +13,7 @@ public class DidPlayerPickUp : NetworkBehaviour {
     public bool isCollectableThere;
     private void Update()
     {
+        //Debug.Log("I REACHEDIT");
         respawnTimer += Time.deltaTime;
         if (respawnTimer >= respawnCap)
         {
@@ -29,7 +30,9 @@ public class DidPlayerPickUp : NetworkBehaviour {
             //Owner = other.transform;
             if (Collectables.activeSelf == true)
             {
-                other.gameObject.GetComponent<PlayerScript>().gestation += 5;
+                other.gameObject.GetComponent<PlayerScript>().gestation += 100;
+                //GameObject.FindGameObjectWithTag("FishManager").GetComponent<FishSpawnerNetwork>().ProduceChild = true;
+                //Cmdspawnfish();
                 //Collectables.SetActive(false);
                 isCollectableThere = false;
                 respawnTimer = 0;
@@ -37,4 +40,13 @@ public class DidPlayerPickUp : NetworkBehaviour {
             
         }
     }
+    //[Command]
+    //void Cmdspawnfish()
+    //{
+    //    //other.GetComponent<PlayerScript>().gestation += 100;
+    //    //GameObject tempHolder = Instantiate(Collectables, Vector3.zero, Quaternion.identity) as GameObject;
+    //    Debug.Log("I REACHEDIT");
+
+    //    //NetworkServer.Spawn(tempHolder);
+    //}
 }

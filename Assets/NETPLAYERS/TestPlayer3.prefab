@@ -1543,7 +1543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Animator: {fileID: 95791099945196752}
-  m_ParameterSendBits: 1
+  m_ParameterSendBits: 7
   param0: 
   param1: 
   param2: 
@@ -1600,6 +1600,7 @@ MonoBehaviour:
   gravity: 20
   moveForce: 15
   prefabFish: {fileID: 1839825509619630, guid: 9b26f909ba3f6a14c91962c2879bb7e3, type: 2}
+  gestation: 0
   speed: 50
   pregoTimer: 0
 --- !u!114 &114420932228591754
@@ -1648,7 +1649,7 @@ MonoBehaviour:
   pluginValueSyncer:
     timestamp: 
     containsInput: 0
-  mecanimVarsToSync: 00000000
+  mecanimVarsToSync: 000000000100000002000000
   inputStates: []
 --- !u!114 &114591243483619704
 MonoBehaviour:
