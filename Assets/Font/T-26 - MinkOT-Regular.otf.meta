@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: db46cb7da954a1c44a31cf30b75f308f
+timeCreated: 1490644554
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 128
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Mink OT
+  fontNames:
+  - Mink OT
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

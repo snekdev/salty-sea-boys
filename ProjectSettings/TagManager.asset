@@ -9,6 +9,7 @@ TagManager:
   - Fish
   - Shark
   - CoverWithCoral
+  - HUDText
   layers:
   - Default
   - TransparentFX
