@@ -344,7 +344,7 @@ GameObject:
   - component: {fileID: 114970430617645774}
   - component: {fileID: 114210640274520606}
   m_Layer: 0
-  m_Name: TestPlayer5
+  m_Name: TestPlayer6
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1542,15 +1542,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cce506911b37443b8ae984adddae4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ani: {fileID: 95016744703571044}
+  ani: {fileID: 0}
   rig: {fileID: 0}
   sk: {fileID: 137190190513550326}
   PLAYERHEALTH: 0
-  gravity: 20
-  moveForce: 15
+  gravity: 8
+  moveForce: 22
   prefabFish: {fileID: 1839825509619630, guid: 9b26f909ba3f6a14c91962c2879bb7e3, type: 2}
   gestation: 0
-  speed: 50
+  speed: 90
   pregoTimer: 0
 --- !u!114 &114210640274520606
 MonoBehaviour:
@@ -1566,22 +1566,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 82
-    i1: 222
-    i2: 147
-    i3: 70
-    i4: 231
-    i5: 247
-    i6: 241
-    i7: 52
-    i8: 136
-    i9: 234
-    i10: 222
-    i11: 120
-    i12: 219
-    i13: 147
-    i14: 228
-    i15: 16
+    i0: 45
+    i1: 112
+    i2: 65
+    i3: 114
+    i4: 44
+    i5: 129
+    i6: 194
+    i7: 84
+    i8: 186
+    i9: 152
+    i10: 108
+    i11: 29
+    i12: 157
+    i13: 70
+    i14: 148
+    i15: 71
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
 --- !u!114 &114299372783225214
@@ -1683,8 +1683,8 @@ CapsuleCollider:
   m_Enabled: 1
   m_Radius: 1.75
   m_Height: 11
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 16.62}
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 7.16}
 --- !u!137 &137190190513550326
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
