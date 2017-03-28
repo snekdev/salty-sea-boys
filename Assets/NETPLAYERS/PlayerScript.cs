@@ -104,7 +104,7 @@ public class PlayerScript : NetworkBehaviour
         //sk.SetBlendShapeWeight(0, ani.GetFloat("Bloat"));
         sk.SetBlendShapeWeight(0, gestation);
 
-        if (gestation > 100)
+        if (gestation > 99)
         {
             PlayerWaistManager wasitHolder = PlayerManager.GetComponent<PlayerWaistManager>();
             wasitHolder.TIMETOPOOP();
