@@ -59,7 +59,13 @@ public class PlayerWaistManager : NetworkBehaviour
 
     }
 
+<<<<<<< HEAD
     public void TIMETOPOOP()
+=======
+
+   
+    public void TIMETOPOOP(Vector3 pos)
+>>>>>>> origin/master
     {
         GameObject tempHolder = Instantiate(myPrefab, Vector3.zero, Quaternion.identity) as GameObject;
 

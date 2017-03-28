@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class DidPlayerPickUp : NetworkBehaviour {
+public class DidPlayerPickUp1 : NetworkBehaviour {
     public float gestation =25;
     float respawnTimer = 0;
     float respawnCap = 5;
+    //public GameObject Collectables;
     public GameObject parent;
-
     public Rigidbody rig;
     public float gravity = 0.3f;
 
@@ -32,7 +32,7 @@ public class DidPlayerPickUp : NetworkBehaviour {
         }
         //Collectables.SetActive(isCollectableThere);
 
-       // parent.transform.position -= Vector3.down * gravity * Time.deltaTime;
+     //   transform.position -= Vector3.down * gravity * Time.deltaTime;
        rig.AddForce(Vector3.down * gravity);
         
        // else
@@ -49,29 +49,16 @@ public class DidPlayerPickUp : NetworkBehaviour {
             //Owner = other.transform;
             //if (Collectables.activeSelf == true)
             //{
-<<<<<<< HEAD
-                other.gameObject.GetComponent<PlayerScript>().gestation += 5;
+           // Debug.Log("HITTTTT");
+                other.gameObject.GetComponent<PlayerScript>().gestation += gestation;
                 //GameObject.FindGameObjectWithTag("FishManager").GetComponent<FishSpawnerNetwork>().ProduceChild = true;
                 //Cmdspawnfish();
                 //Collectables.SetActive(false);
                 isCollectableThere = false;
                 respawnTimer = 0;
-                transform.position = new Vector3(initialPosition.x, initialPosition.y + 50, initialPosition.z);
+            transform.position = new Vector3(Random.RandomRange(350f, 700f), 120, Random.RandomRange(350f, 700f));// new Vector3(initialPosition.x, initialPosition.y + 50, initialPosition.z);
             //}
             
-=======
-
-           // Debug.Log("HITTTTT");
-            other.gameObject.GetComponent<PlayerScript>().gestation += gestation;
-            //GameObject.FindGameObjectWithTag("FishManager").GetComponent<FishSpawnerNetwork>().ProduceChild = true;
-            //Cmdspawnfish();
-            //Collectables.SetActive(false);
-            isCollectableThere = false;
-            respawnTimer = 0;
-            parent.transform.position = new Vector3(Random.RandomRange(350f, 700f), Random.RandomRange(-20f, 100f), Random.RandomRange(350f, 700f));// new Vector3(initialPosition.x, initialPosition.y + 50, initialPosition.z);
-                                                                                                                         //}
-
->>>>>>> origin/master
         }
     }
     //[Command]
